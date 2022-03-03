@@ -1,0 +1,919 @@
+{%extends "header.html"%}
+{% block content %}
+
+
+<style>
+    html, body {
+  width: 100%;
+  height:100%;
+}
+* {box-sizing:border-box;
+   border-radius:30px;}
+body {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+}
+#scrollToTopBtn {
+  background-color: black;
+  float:right;
+  border: none;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 48px;
+  width: 48px;
+}
+#scrollToTopBtn:hover {
+  background-color: #660000;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+.head{
+font-size: 100px;
+text-align: center;
+background-image: linear-gradient(to left, violet, indigo,  blue,black, yellow, orange, red);
+-webkit-background-clip: text;
+-moz-background-clip: text;
+background-clip: text;
+color: transparent;
+letter-spacing:6px;
+}
+.head1{
+background-image: linear-gradient(to right, violet, indigo,  blue,black, yellow, orange, red);
+-webkit-background-clip: text;
+-moz-background-clip: text;
+background-clip: text;
+color: transparent;
+}
+
+.slideshow-container {
+  max-width: auto;
+  position: relative;
+  margin: auto;
+}
+
+
+.mySlides {
+  display: none;
+}
+
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+.flip-barley {
+  float:left;
+  width:33%;
+  padding:2px;
+  background-color: transparent;
+  height: 200px;
+  border-radius:20%;
+  perspective: 1000px;
+}
+
+.flip-barley-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-barley:hover .flip-barley-inner {
+  transform: rotateX(180deg);
+}
+
+.flip-barley-front, .flip-barley-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.flip-barley-back {
+  transform: rotateX(180deg);
+}
+
+
+.flip-paddy {
+  float:left;
+  width:33%;
+  padding:2px;
+  background-color: transparent;
+  height: 200px;
+  border-radius:20%;
+  perspective: 1000px;
+}
+
+.flip-paddy-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-paddy:hover .flip-paddy-inner {
+  transform: rotateX(180deg);
+}
+
+.flip-paddy-front, .flip-paddy-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.flip-paddy-back {
+  transform: rotateX(180deg);
+}
+
+.flip-maize {
+  float:left;
+  width:33%;
+  padding:2px;
+  background-color: transparent;
+  height: 200px;
+  border-radius:20%;
+  perspective: 1000px;
+}
+
+.flip-maize-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-maize:hover .flip-maize-inner {
+  transform: rotateX(180deg);
+}
+
+.flip-maize-front, .flip-maize-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.flip-maize-back {
+  transform: rotateX(180deg);
+}
+
+.flip-mithai {
+  float:left;
+  width:33%;
+  padding:2px;
+  background-color: transparent;
+  height: 200px;
+  border-radius:20%;
+  perspective: 1000px;
+}
+
+
+.flip-mithai-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+
+.flip-mithai:hover .flip-mithai-inner {
+  transform: rotateY(180deg);
+}
+
+
+.flip-mithai-front, .flip-mithai-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+
+.flip-mithai-back {
+
+  transform: rotateY(180deg);
+}
+
+
+.flip-puri {
+  float:left;
+  padding:2px;
+  background-color: transparent;
+  width: 33.33%;
+  height: 200px;
+  perspective: 1000px;
+}
+
+
+.flip-puri-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+
+.flip-puri:hover .flip-puri-inner {
+  transform: rotateY(180deg);
+}
+
+
+.flip-puri-front, .flip-puri-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-puri-back {
+
+  transform: rotateY(180deg);
+}
+.flip-Singauri{
+  float:left;
+  width:33.33%;
+  padding:2px;
+  background-color: transparent;
+  height: 200px;
+  border-radius:30%;
+  perspective: 1000px;
+}
+
+
+.flip-Singauri-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+
+.flip-Singauri:hover .flip-Singauri-inner {
+  transform: rotateY(180deg);
+}
+
+
+.flip-Singauri-front, .flip-Singauri-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+
+.flip-Singauri-back {
+
+  transform: rotateY(180deg);
+}
+
+.flip-Baijnath {   /*change name instead of saha */
+  float:left;
+  width:33.33%;
+  padding:2px;
+  background-color: transparent;
+  height: 200px;
+  border-radius:30%;
+  perspective: 1000px;
+}
+
+
+.flip-Baijnath-inner {   /*change name instead of saha */
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+
+.flip-Baijnath:hover .flip-Baijnath-inner {   /*change name instead of saha */
+  transform: rotateY(180deg);
+}
+
+
+.flip-Baijnath-front, .flip-Baijnath-back {   /*change name instead of saha */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+
+.flip-Baijnath-back {   /*change name instead of saha */
+
+  transform: rotateY(180deg);
+}
+.flip-Kanda {   /*change name instead of falls */
+  float:left;
+  width:33.33%;
+  padding:2px;
+  background-color: transparent;
+  height: 200px;
+  border-radius:30%;
+  perspective: 1000px;
+
+}
+
+
+.flip-Kanda-inner {   /*change name instead of falls */
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+
+.flip-Kanda:hover .flip-Kanda-inner {   /*change name instead of falls */
+  transform: rotateY(180deg);
+}
+
+
+.flip-Kanda-front, .flip-Kanda-back {   /*change name instead of falls */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+
+.flip-Kanda-back {   /*change name instead of falls */
+
+  transform: rotateY(180deg);
+}
+.flip-Bagnath {
+  float:left;
+  width:33.33%;
+  padding:2px;
+  background-color: transparent;
+  height: 200px;
+  border-radius:30%;
+  perspective: 1000px;
+}
+
+
+.flip-Bagnath-inner {    /*change name instead of tap */
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+
+.flip-Bagnath:hover .flip-Bagnath-inner {   /*change name instead of tap */
+  transform: rotateY(180deg);
+}
+
+
+.flip-Bagnath-front, .flip-Bagnath-back {   /*change name instead of tap */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+
+.flip-Bagnath-back {    /*change name instead of tap */
+
+  transform: rotateY(180deg);
+}
+.flip-Copper{   /*change name instead of aip */
+  float:left;
+  width:33.33%;
+  padding:2px;
+  background-color: transparent;
+  height: 200px;
+  border-radius:30%;
+  perspective: 1000px;
+
+}
+
+
+.flip-Copper-inner {   /*change name instead of aip */
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+
+.flip-Copper:hover .flip-Copper-inner {    /*change name instead of aip */
+  transform: rotateY(180deg);
+}
+
+
+.flip-Copper-front, .flip-Copper-back {    /*change name instead of aip */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+
+.flip-Copper-back {    /*change name instead of aip */
+
+  transform: rotateY(180deg);
+}
+.flip-wool {    /*change name instead of wool */
+  float:left;
+  width:33.33%;
+  padding:2px;
+  background-color: transparent;
+  height: 200px;
+  border-radius:30%;
+  perspective: 1000px;
+
+}
+
+
+.flip-wool-inner {    /*change name instead of wool */
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+
+.flip-wool:hover .flip-wool-inner {    /*change name instead of wool */
+  transform: rotateY(180deg);
+}
+
+
+.flip-wool-front, .flip-wool-back {    /*change name instead of wool */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+
+.flip-wool-back {    /*change name instead of wool */
+
+  transform: rotateY(180deg);
+}
+.flip-wood {    /*change name instead of wood */
+  float:left;
+  width:33.33%;
+  padding:2px;
+  background-color: transparent;
+  height: 200px;
+  border-radius:30%;
+  perspective: 1000px;
+}
+
+
+.flip-wood-inner {    /*change name instead of wood */
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+
+.flip-wood:hover .flip-wood-inner {    /*change name instead of wood */
+  transform: rotateY(180deg);
+}
+
+
+.flip-wood-front, .flip-wood-back {    /*change name instead of wood */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+
+.flip-wood-back {    /*change name instead of wood */
+
+  transform: rotateY(180deg);
+}
+
+
+</style>
+
+<script>
+
+    var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+}
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}
+  slides[slideIndex-1].style.display = "block";
+  setTimeout(showSlides, 2000);
+}
+mybutton = document.getElementById("scrollToTopBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
+</script>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Bageshwar</title>
+    <link rel="icon" type="image/x-icon"
+          href="https://logodix.com/logo/83317.png"></link><!--web page icon-->
+    <link rel="stylesheet" href="deh.css">
+    <script src="deh.js"></script>
+
+
+    <div class="slideshow-container">
+        <div class="mySlides fade">
+           <center><img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Bageshwar_Town.jpg" width="800" height="400"></center>
+        </div>
+
+        <div class="mySlides fade">
+            <center><img src="https://www.euttaranchal.com/tourism/timthumb.php?src=https://www.euttaranchal.com/tourism/photos/baijnath-2185538.jpg&w=750&h=510&q=50" width="800" height="400"></center>
+        </div>
+
+        <div class="mySlides fade">
+            <center><img src="https://duniakagyan.com/wp-content/uploads/2021/03/Bageshwar.png" width="800" height="400"></center>
+        </div>
+
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+<br>
+
+
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+</div>
+
+
+    <a href="https://bageshwar.nic.in/agriculture/"><h1 class="head">BAGESHWAR</h1></a><!--district name on top of page-->
+     <center><h2 style="letter-spacing:2px; text-decoration: line-through;" class="head1">  WEATHER <label id="weather-scroll"> </label></h2></center>
+    <center><h2><span style="font-weight:660">date&time:</span> {{d_t}}</h2></center>
+
+    <center><h2><span style="font-weight:660">celsius:</span> {{celsius}} C </h2></center>
+
+    <center><h2><span style="font-weight:660">fahrenheit:</span> {{fahrenheit}} F </h2></center>
+
+    <center><h2><span style="font-weight:660">condition:</span> {{condition}} <img src="{{icon}}" ALIGN=”center”
+                                                                                   alt="Los Angeles"
+                                                                                   class="icon"></h2></center>
+
+
+<center style="padding: 270px 10px 40px; font-size:30px;  letter-spacing:6px;"><h2 class="head1">Crops</h2></center>
+<div>
+<div class="flip-barley"><!--change food name instead of cane-->
+  <div class="flip-barley-inner"><!--change food name instead of cane-->
+    <div class="flip-barley-front"><!--change food name instead of cane-->
+        <img src="https://cdn.theindianmed.com/wp-content/uploads/2020/10/24135427/4.11_MOT_Barley_NEW-Wordpress.gif" alt="Avatar" style="width:250px;height:150px;"><!--crop image url-->
+        <h2 style="font-size: 30px ">barley</h2><!--crop name-->
+
+    </div>
+    <div class="flip-barley-back"><!--change crop name instead of cane-->
+        <p style="font-weight: bold; font-size: 20px;">🎋barley ---＞ Summer & winter crop
+          <br>🎋suitable soil --＞Medium & Heavy Black Soils.<br>🎋Temperature --＞ 30-32°C</p><!--crop description-->
+        <a href="https://vikaspedia.in/agriculture/crop-production/package-of-practices/cereals-and-millets/bajra"><h2>irrigation : Drip irrigation</h2></a><!--wikipedia of crop-->
+    </div>
+  </div>
+</div>
+</div>
+
+    <div>
+<div class="flip-paddy"><!--change food name instead of cane-->
+  <div class="flip-paddy-inner"><!--change food name instead of cane-->
+    <div class="flip-paddy-front"><!--change food name instead of cane-->
+        <img src="https://www.agrifarming.in/wp-content/uploads/2018/09/Scope-and-Importance-of-Rice..jpg" alt="Avatar" style="width:250px;height:150px;"><!--crop image url-->
+        <h2 style="font-size: 30px ">Paddy</h2><!--crop name-->
+
+    </div>
+    <div class="flip-paddy-back"><!--change crop name instead of cane-->
+        <p style="font-weight: bold; font-size: 20px;">🌾Paddy ---＞ Summer & Winter crop
+          <br>🌾suitable soil --＞Alluvial soil<br>🌾Temperature --＞ 25°C and 35°C</p><!--crop description-->
+        <a href="https://www.aucom.com/industries/irrigation/rice-field-flood-irrigation"><h2>irrigation : flood irrigation</h2></a><!--wikipedia of crop-->
+    </div>
+  </div>
+</div>
+</div>
+
+    <div>
+<div class="flip-maize"><!--change food name instead of cane-->
+  <div class="flip-maize-inner"><!--change food name instead of cane-->
+    <div class="flip-maize-front"><!--change food name instead of cane-->
+        <img src="https://apseeds.ap.gov.in/Assets/Images/maize.jpeg" alt="Avatar" style="width:250px;height:150px;"><!--crop image url-->
+        <h2 style="font-size: 30px ">Maize</h2><!--crop name-->
+
+    </div>
+    <div class="flip-maize-back"><!--change crop name instead of cane-->
+        <p style="font-weight: bold; font-size: 20px;">🌽Maize ---＞ Summer crop
+          <br>🌽suitable soil --＞clay loam soil<br>🌽Temperature --＞ 21°C and 27°C</p><!--crop description-->
+        <a href="https://www.gestiriego.com/en/drip-irrigation-in-the-corn-crop/"><h2>irrigation : Drip irrigation</h2></a><!--wikipedia of crop-->
+    </div>
+  </div>
+</div>
+</div>
+
+    <center style="padding: 270px 10px 40px; font-size:30px;  letter-spacing:6px;"><h2 class="head1">Flavours   of   Land</h2></center>
+
+
+  <section>
+        <div class="flip-mithai">
+            <div class="flip-mithai-inner">
+                <div class="flip-mithai-front">
+                    <img src="https://img-global.cpcdn.com/recipes/84cb7ce429b2dbfe/1280x1280sq70/photo.webp"
+                         alt="Avatar" style="width:250px;height:150px;">
+                    <h2>Bal mithai</h2>
+
+                </div>
+                <div class="flip-mithai-back">
+                    <a href="https://en.wikipedia.org/wiki/Bal_mithai"><h2>
+                        Bal mithai</h2></a>
+                    <p> Bal mithai (Kumaoni: बाल मिठाई) is a brown chocolate-like fudge, made with roasted khoya,
+                        <br>coated with white sugar balls, and is a popular sweet from the Himalayan state of Uttarakhand in India, especially regions around Kumaon.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="flip-puri">
+            <div class="flip-puri-inner">
+                <div class="flip-puri-front">
+                    <img src="https://c.ndtvimg.com/2019-12/klmb5ibg_aloo-puri_625x300_04_December_19.jpg" alt="Avatar"
+                         style="width:250px;height:150px;">
+                    <h2>aloo-puri</h2>
+                </div>
+                <div class="flip-puri-back">
+                    <a href="https://food.ndtv.com/food-drinks/teej-2020-how-to-make-bedmi-puri-aloo-and-kheer-2266913"><h2>aloo-puri</h2></a>
+                    <p>a unique and spicy way to make the traditional deep-fried indian bread with mashed and boiled potatoes..</p>
+                </div>
+            </div>
+        </div>
+        <div class="flip-Singauri">
+            <div class="flip-Singauri-inner">
+                <div class="flip-Singauri-front">
+                    <img src="https://images.slurrp.com/prod/articles/esmb7uiv07n.webp"
+                         alt="Avatar" style="width:250px;height:150px;">
+                    <h2>Singauri</h2>
+
+                </div>
+                <div class="flip-Singauri-back">
+                    <a href="https://www.slurrp.com/article/almora%E2%80%99s-sweet-affair-with-singauri-reminds-us-of-our-favourite-mithai--1629191100968"><h2>Singauri</h2></a>
+                    <p> Singauri is an Indian sweet from Kumaon made with Khoya and wrapped in maalu leaf (Bauhinia variegata)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <center style="padding: 270px 10px 40px; font-size:30px; letter-spacing:6px;"><h2 class="head1">Famous   Places   of   Land</h2></center>
+
+
+<section>
+    <div class="flip-Baijnath"><!--change place name instead of saha-->
+  <div class="flip-Baijnath-inner"><!--change place name instead of saha-->
+    <div class="flip-Baijnath-front"><!--change place name instead of saha-->
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/54/Baijnath_Temple_2019.jpg" alt="Avatar" style="width:250px;height:150px;"><!--place url-->
+        <h2 style="font-size: 30px ">Baijnatha</h2><!--place name-->
+    </div>
+    <div class="flip-Baijnath-back"><!--change place name instead of saha-->
+        <a href="https://en.wikipedia.org/wiki/Baijnath,_Uttarakhand"><h2>Baijnath</h2></a><!--place wikipedia url-->
+      <p style="font-weight: bold; font-size: 20px;"> ✦Baijnath is famous for its ancient temples, located at an altitude of 1126 mts,
+          <br>on the banks of the Gomti River in the Bageshwar district of Uttarakhand.
+      </p><!--place description-->
+    </div>
+  </div>
+</div>
+    <div class="flip-Kanda"><!--change place name instead of falls-->
+  <div class="flip-Kanda-inner"><!--change place name instead of falls-->
+    <div class="flip-Kanda-front"><!--change place name instead of falls-->
+        <img src="https://www.euttaranchal.com/tourism/timthumb.php?src=https://www.euttaranchal.com/tourism/photos/kanda-village-3321236.jpg&w=750&h=510&q=50" alt="Avatar" style="width:250px;height:150px;"><!--place img url-->
+        <h2 style="font-size: 30px ">Kanda</h2><!--place name-->
+
+    </div>
+    <div class="flip-Kanda-back"><!--change place name instead of falls-->
+        <a href="https://en.wikipedia.org/wiki/Kanda,_Uttarakhand"><h2>Kanda</h2></a><!--place wikipedia url-->
+      <p style="font-weight: bold; font-size: 20px;">✦Kanda is a beautiful and historic town and tehsil in Bageshwar district in
+          the state Uttarakhand of India. It is 26 kms from Bageshwar.
+      </p><!--place description-->
+    </div>
+  </div>
+</div>
+    <div class="flip-Bagnath"><!--change place name instead of tap-->
+  <div class="flip-Bagnath-inner"><!--change place name instead of tap-->
+    <div class="flip-Bagnath-front"><!--change place name instead of tap-->
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/03/Bagnath_Temple_at_Bageshwar_Uttrakhand_-_panoramio_%28Cropped%29.jpg" alt="Avatar" style="width:250px;height:150px;"><!--place img url-->
+         <h2 style="font-size: 30px ">Bagnath Temple </h2><!--place name-->
+    </div>
+    <div class="flip-Bagnath-back"><!--change place name instead of tap-->
+        <a href="https://en.wikipedia.org/wiki/Bagnath_Temple"><h2>Bagnath Temple</h2></a><!--place wikipedia url-->
+      <p style="font-weight: bold; font-size: 20px;"> ✦Bagnath temple is an ancient shrine dedicated to Lord Shiva, situated in the
+          Bageshwar city at the confluence of Sarayu and Gomati rivers.
+      </p><!--place description-->
+    </div>
+  </div>
+</div>
+</section>
+
+
+    <center style="padding: 270px 10px 40px; font-size:30px; letter-spacing:6px; text-decoration: none;"><h2 class="head1">Famous   Handicrafts</h2></center>
+
+
+<section>
+    <div class="flip-Copper"><!--change craft name instead of aip-->
+  <div class="flip-Copper-inner"><!--change craft name instead of aip-->
+    <div class="flip-Copper-front"><!--change place name instead of aip-->
+        <img src="https://www.tourmyindia.com/states/uttarakhand/images/copperware.jpg" alt="Avatar" style="width:250px;height:150px;"><!--craft img url-->
+        <h2 style="font-size: 30px ">Copper craft</h2><!--craft name-->
+
+    </div>
+    <div class="flip-Copper-back"><!--change craft name instead of aip-->
+        <a href="https://www.samaun.com/blogs/news/traditional-copper-craft-of-uttarakhand#:~:text=The%20craft%20of%20copperwares%20is,craftsmen%20in%20the%20Kumaon%20region."><h2>Copper craft</h2></a><!--craft wikipedia url-->
+      <p style="font-weight: bold; font-size: 20px;">✦The craft of copperwares is prominent in three districts of the state- Pithoragarh, Bageshwar and Almora where the local craftsmen still produce a variety of beautiful copper artefacts.
+      </p><!--craft description-->
+    </div>
+  </div>
+</div>
+        <div class="flip-wool"><!--change craft name instead of wool-->
+  <div class="flip-wool-inner"><!--change craft name instead of wool-->
+    <div class="flip-wool-front"><!--change craft name instead of wool-->
+        <img src="https://assets.traveltriangle.com/blog/wp-content/uploads/2018/03/Woollen-garments.jpg" alt="Avatar" style="width:250px;height:150px;"><!--craft img url-->
+        <h2 style="font-size: 30px ">Woolen Garments</h2><!--craft name-->
+    </div>
+    <div class="flip-wool-back"><!--change craft name instead of wool-->
+        <a href="https://www.indiamart.com/kausani-shawl-factory/other-products.html"><h2>Woolen Garments</h2></a><!--craft wikipedia url-->
+      <p style="font-weight: bold; font-size: 20px;">✦As Dehradun is a winter capital,<br> it is famous for its woolen materials.
+          <br>woolen garments are exclusive in dehradun.<br>
+      </p><!--craft description-->
+    </div>
+  </div>
+</div>
+     <div class="flip-wood"><!--change craft name instead of wood-->
+  <div class="flip-wood-inner"><!--change craft name instead of wood-->
+    <div class="flip-wood-front"><!--change craft name instead of wood-->
+        <img src="https://cdn.s3waas.gov.in/s3d7a728a67d909e714c0774e22cb806f2/uploads/2018/05/2018050752-768x509.jpg" alt="Avatar" style="width:250px;height:150px;"><!--craft img url-->
+        <h2 style="font-size: 30px ">Wooden Carvings</h2><!--craft name-->
+    </div>
+    <div class="flip-wood-back"><!--change craft name instead of wood-->
+        <a href="https://asiainch.org/craft/driftwood-of-uttarakhand/"><h2>Wooden Carvings</h2></a><!--craft wikipedia url-->
+      <p style="font-weight: bold; font-size: 20px;">✦Drift root or the root of the 'Sea Mova' tree is available along the seashore.
+          <br> The craft people are also found in Uttarakhand.
+      </p><!--craft description-->
+    </div>
+  </div>
+</div>
+    </section>
+
+
+<footer>
+  <button onclick="topFunction()" id="scrollToTopBtn" title="Go to top">Top☝</button>
+</footer>
+    </div>
+
+
+</head>
+<body>
+</body>
+</html>
+
+{%endblock%}

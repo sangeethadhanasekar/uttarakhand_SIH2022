@@ -1,0 +1,927 @@
+{%extends "header.html"%}
+{% block content %}
+
+<style>
+
+  html, body {
+  width: 100%;
+  height:100%;
+}
+* {box-sizing:border-box;
+   border-radius:30px;}
+
+
+
+html, body {
+  width: 100%;
+  height:100%;
+}
+
+body {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 10000% 10000%;
+    animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+#scrollToTopBtn {
+  background-color: black;
+  float:right;
+  border: none;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 48px;
+  width: 48px;
+}
+#scrollToTopBtn:hover {
+  background-color: #660000;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+.head{
+font-size: 100px;
+text-align: center;
+background-image: linear-gradient(to left, violet, indigo,  blue,black, yellow, orange, red);
+-webkit-background-clip: text;
+-moz-background-clip: text;
+background-clip: text;
+color: transparent;
+letter-spacing:6px;
+}
+.head1{
+background-image: linear-gradient(to right, violet, indigo,  blue,black, yellow, orange, red);
+-webkit-background-clip: text;
+-moz-background-clip: text;
+background-clip: text;
+color: transparent;
+}
+
+.slideshow-container {
+  max-width: auto;
+  position: relative;
+  margin: auto;
+}
+
+
+.mySlides {
+  display: none;
+}
+
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+.flip-ley {          /*change name instead of cane */
+                     /* Note : changed name should be same as the name given in HTML*/
+  float:left;
+  width:33%;
+  padding:2px;
+  background-color: transparent;
+  height: 200px;
+  border-radius:20%;
+  perspective: 1000px;
+}
+
+.flip-ley-inner {    /*change name instead of cane */
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-ley:hover .flip-ley-inner {    /*change name instead of cane */
+  transform: rotateX(180deg);
+}
+
+.flip-ley-front, .flip-ley-back {    /*change name instead of cane */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.flip-ley-back {    /*change name instead of cane */
+  transform: rotateX(180deg);
+}
+
+
+.flip-go {    /*change name instead of paddy */
+  float:left;
+  width:33%;
+  padding:2px;
+  background-color: transparent;
+  height: 200px;
+  border-radius:20%;
+  perspective: 1000px;
+}
+
+.flip-go-inner {     /*change name instead of paddy */
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-go:hover .flip-go-inner {     /*change name instead of paddy */
+  transform: rotateX(180deg);
+}
+
+.flip-go-front, .flip-go-back {     /*change name instead of paddy */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.flip-go-back {     /*change name instead of paddy */
+  transform: rotateX(180deg);
+}
+
+.flip-Plum {     /*change name instead of maize */
+  float:left;
+  width:33%;
+  padding:2px;
+  background-color: transparent;
+  height: 200px;
+  border-radius:20%;
+  perspective: 1000px;
+}
+
+.flip-Plum-inner {    /*change name instead of maize */
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-Plum:hover .flip-Plum-inner {    /*change name instead of maize */
+  transform: rotateX(180deg);
+}
+
+.flip-Plum-front, .flip-Plum-back {    /*change name instead of maize */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.flip-Plum-back {    /*change name instead of maize */
+  transform: rotateX(180deg);
+}
+
+.flip-dub {    /*change name instead of tikki */
+  float:left;
+  width:33%;
+  padding:2px;
+  background-color: transparent;
+  height: 200px;
+  border-radius:20%;
+  perspective: 1000px;
+}
+.flip-dub-inner {    /*change name instead of tikki */
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+
+.flip-dub:hover .flip-dub-inner {    /*change name instead of tikki */
+  transform: rotateY(180deg);
+}
+
+
+.flip-dub-front, .flip-dub-back {   /*change name instead of tikki */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+
+.flip-dub-back {    /*change name instead of tikki */
+
+  transform: rotateY(180deg);
+}
+
+
+.flip-sig {   /*change name instead of pakora */
+  float:left;
+  padding:2px;
+  background-color: transparent;
+  width: 33.33%;
+  height: 200px;
+  perspective: 1000px;
+}
+
+
+.flip-sig-inner {    /*change name instead of pakora */
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+
+.flip-sig:hover .flip-sig-inner {    /*change name instead of pakora */
+  transform: rotateY(180deg);
+}
+
+
+.flip-sig-front, .flip-sig-back {    /*change name instead of pakora */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+
+.flip-sig-back {             /*change name instead of pakora */
+
+  transform: rotateY(180deg);
+}
+.flip-bal {    /*change name instead of momos */
+  float:left;
+  width:33.33%;
+  padding:2px;
+  background-color: transparent;
+  height: 200px;
+  border-radius:30%;
+  perspective: 1000px;
+}
+
+
+.flip-bal-inner {   /*change name instead of momos */
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+
+.flip-bal:hover .flip-bal-inner {   /*change name instead of momos */
+  transform: rotateY(180deg);
+}
+
+
+.flip-bal-front, .flip-bal-back {   /*change name instead of momos */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+
+.flip-bal-back {    /*change name instead of momos */
+
+  transform: rotateY(180deg);
+}
+.flip-bec {   /*change name instead of saha */
+  float:left;
+  width:33.33%;
+  padding:2px;
+  background-color: transparent;
+  height: 200px;
+  border-radius:30%;
+  perspective: 1000px;
+}
+
+
+.flip-bec-inner {   /*change name instead of saha */
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+
+.flip-bec:hover .flip-bec-inner {   /*change name instead of saha */
+  transform: rotateY(180deg);
+}
+
+
+.flip-bec-front, .flip-bec-back {   /*change name instead of saha */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+
+.flip-bec-back {   /*change name instead of saha */
+
+  transform: rotateY(180deg);
+}
+.flip-mat {   /*change name instead of falls */
+  float:left;
+  width:33.33%;
+  padding:2px;
+  background-color: transparent;
+  height: 200px;
+  border-radius:30%;
+  perspective: 1000px;
+
+}
+
+
+.flip-mat-inner {   /*change name instead of falls */
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+
+.flip-mat:hover .flip-mat-inner {   /*change name instead of falls */
+  transform: rotateY(180deg);
+}
+
+
+.flip-mat-front, .flip-mat-back {   /*change name instead of falls */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+
+.flip-mat-back {   /*change name instead of falls */
+
+  transform: rotateY(180deg);
+}
+.flip-Deer {
+  float:left;
+  width:33.33%;
+  padding:2px;
+  background-color: transparent;
+  height: 200px;
+  border-radius:30%;
+  perspective: 1000px;
+}
+
+
+.flip-Deer-inner {    /*change name instead of tap */
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+
+.flip-Deer:hover .flip-Deer-inner {   /*change name instead of tap */
+  transform: rotateY(180deg);
+}
+
+
+.flip-Deer-front, .flip-Deer-back {   /*change name instead of tap */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+
+.flip-Deer-back {    /*change name instead of tap */
+
+  transform: rotateY(180deg);
+}
+.flip-car {   /*change name instead of aip */
+  float:left;
+  width:33.33%;
+  padding:2px;
+  background-color: transparent;
+  height: 200px;
+  border-radius:30%;
+  perspective: 1000px;
+
+}
+
+
+.flip-car-inner {   /*change name instead of aip */
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+
+.flip-car:hover .flip-car-inner {    /*change name instead of aip */
+  transform: rotateY(180deg);
+}
+
+
+.flip-car-front, .flip-car-back {    /*change name instead of aip */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+
+.flip-car-back {    /*change name instead of aip */
+
+  transform: rotateY(180deg);
+}
+.flip-cu {    /*change name instead of wool */
+  float:left;
+  width:33.33%;
+  padding:2px;
+  background-color: transparent;
+  height: 200px;
+  border-radius:30%;
+  perspective: 1000px;
+
+}
+
+
+.flip-cu-inner {    /*change name instead of wool */
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+
+.flip-cu:hover .flip-cu-inner {    /*change name instead of wool */
+  transform: rotateY(180deg);
+}
+
+
+.flip-cu-front, .flip-cu-back {    /*change name instead of wool */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+
+.flip-cu-back {    /*change name instead of wool */
+
+  transform: rotateY(180deg);
+}
+.flip-wood {    /*change name instead of wood */
+  float:left;
+  width:33.33%;
+  padding:2px;
+  background-color: transparent;
+  height: 200px;
+  border-radius:30%;
+  perspective: 1000px;
+}
+
+
+.flip-wood-inner {    /*change name instead of wood */
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+
+.flip-wood:hover .flip-wood-inner {    /*change name instead of wood */
+  transform: rotateY(180deg);
+}
+
+
+.flip-wood-front, .flip-wood-back {    /*change name instead of wood */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+
+.flip-wood-back {    /*change name instead of wood */
+
+  transform: rotateY(180deg);
+}
+
+</style>
+
+<script>
+
+  var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+}
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}
+  slides[slideIndex-1].style.display = "block";
+  setTimeout(showSlides,3000);
+}
+mybutton = document.getElementById("scrollToTopBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
+
+</script>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Almora</title><!--web page title-->
+    <link rel="icon" type="image/x-icon" href="https://media.istockphoto.com/photos/flamy-symbol-picture-id178600303?k=20&m=178600303&s=612x612&w=0&h=FSy0fj2oB4I1GrFq4thJ-ncakTOvCfi9dVeLFZQfFw0="><!--web page icon-->
+    <link rel="stylesheet" href="almora.css">
+    <script src="almora.js"></script>
+
+
+    <div class="slideshow-container">
+      <div class="mySlides fade">
+    <img src="https://uttarakhandtourism.gov.in/sites/default/files/2021-12/XRACottage1.jpg"><!--slideshow img URL-->
+  </div>
+
+  <div class="mySlides fade">
+    <img src="https://uttarakhandtourism.gov.in/sites/default/files/2021-02/Binsar%20Wildlife%20Sanctuary_1.jpg"><!--slideshow img URL-->
+  </div>
+
+  <div class="mySlides fade">
+    <img src="https://uttarakhandtourism.gov.in/sites/default/files/2021-11/Khaliya%20Top%2C%20Munsiyari%20%281%29.jpg" ><!--slideshow img URL-->
+  </div>
+
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+<br>
+
+
+<div style="text-align:center">
+  <span class="dot" onmouseover="currentSlide(1)"></span>
+  <span class="dot" onmouseover="currentSlide(2)"></span>
+  <span class="dot" onmouseover="currentSlide(3)"></span>
+</div>
+
+
+    <h1 class="head">ALMORA</h1><!--district name on top of page-->
+     <center><h2 style="letter-spacing:2px; text-decoration: line-through;" class="head1">  WEATHER <label id="weather-scroll"> </label></h2></center>
+    <center><h2><span style="font-weight:660">date&time:</span> {{d_t}}</h2></center>
+
+    <center><h2><span style="font-weight:660">celsius:</span> {{celsius}} C </h2></center>
+
+    <center><h2><span style="font-weight:660">fahrenheit:</span> {{fahrenheit}} F </h2></center>
+
+    <center><h2><span style="font-weight:660">condition:</span> {{condition}} <img src="{{icon}}" ALIGN=”center”
+                                                                                   alt="Los Angeles"
+                                                                                   class="icon"></h2></center>
+
+
+<center style="padding: 100px 10px 40px; font-size:30px;  letter-spacing:6px;"><h2 class="head1">Crops</h2></center>
+<div>
+<div class="flip-ley"><!--change food name instead of cane-->
+  <div class="flip-ley-inner"><!--change food name instead of cane-->
+    <div class="flip-ley-front"><!--change food name instead of cane-->
+        <img src="https://www.syngenta.co.uk/sites/g/files/zhg151/f/styles/syngenta_cta_teaser/public/media/2020/05/27/sy_kingsbarn_3.jpg?itok=bD3yZBMC" alt="Avatar" style="width:250px;height:150px;"><!--crop image url-->
+        <h2 style="font-size: 30px ">Barley</h2><!--crop name-->
+
+    </div>
+    <div class="flip-ley-back"><!--change crop name instead of cane-->
+        <p style="font-weight: bold; font-size: 20px;">🌾Barley ---＞ Summer & winter crop
+          <br>🌾suitable soil --＞ Sandy Loam soil<br>🌾Temperature --＞ 15°C to 30°C</p><!--crop description-->
+        <a href="https://www.mississippi-crops.com/2020/06/19/flood-irrigated-soybean-yield-considerations/"><h2>irrigation : flood irrigation</h2></a><!--wikipedia of crop-->
+    </div>
+  </div>
+</div>
+</div>
+
+    <div>
+<div class="flip-go"><!--change food name instead of cane-->
+  <div class="flip-go-inner"><!--change food name instead of cane-->
+    <div class="flip-go-front"><!--change food name instead of cane-->
+        <img src="https://wallpapercave.com/wp/wp2756457.jpg" alt="Avatar" style="width:250px;height:150px;"><!--crop image url-->
+        <h2 style="font-size: 30px ">Mango</h2><!--crop name-->
+
+    </div>
+    <div class="flip-go-back"><!--change crop name instead of cane-->
+        <p style="font-weight: bold; font-size: 20px;">🥭Mango ---＞ Summer crop
+          <br>🥭suitable soil --＞Lateritic soil<br>🥭Temperature --＞ 23.90°C and 26.70°C</p><!--crop description-->
+        <a href="https://www.dawn.com/news/536325/mango-production-and-drip-irrigation"><h2>irrigation : drip irrigation</h2></a><!--wikipedia of crop-->
+    </div>
+  </div>
+</div>
+</div>
+
+    <div>
+<div class="flip-Plum"><!--change food name instead of cane-->
+  <div class="flip-Plum-inner"><!--change food name instead of cane-->
+    <div class="flip-Plum-front"><!--change food name instead of cane-->
+        <img src="https://www.wallpaperup.com/uploads/wallpapers/2015/10/19/820832/51bc18d22b60af82ad21b8bdd517175f.jpg" alt="Avatar" style="width:250px;height:150px;"><!--crop image url-->
+        <h2 style="font-size: 30px ">Plum</h2><!--crop name-->
+
+    </div>
+    <div class="flip-Plum-back"><!--change crop name instead of cane-->
+        <p style="font-weight: bold; font-size: 20px;">🍒Plum ---＞ Summer crop
+          <br>🍒suitable soil --＞lateritic soil<br>🍒Temperature --＞47°C in summers.</p><!--crop description-->
+        <a href="https://en.wikipedia.org/wiki/Deficit_irrigation"><h2>irrigation : deﬁcit irrigation</h2></a><!--wikipedia of crop-->
+    </div>
+  </div>
+</div>
+</div>
+
+    <center style="padding: 270px 10px 40px; font-size:30px;  letter-spacing:6px;"><h2 class="head1">Flavours   of   Land</h2></center>
+
+
+<section>
+<div class="flip-dub"><!--change food name instead of tikki-->
+  <div class="flip-dub-inner"><!--change food name instead of tikki-->
+    <div class="flip-dub-front"><!--change food name instead of tikki-->
+        <img src="https://cdn.s3waas.gov.in/s33a0772443a0739141292a5429b952fe6/uploads/2018/04/2018041996-300x179.jpg" alt="Avatar" style="width:250px;height:150px;"><!--food image url-->
+        <h2 style="font-size: 30px ">Dubuk</h2><!--food name-->
+
+    </div>
+    <div class="flip-dub-back"><!--change food name instead of tikki-->
+        <a href="https://almora.nic.in/cuisines/#:~:text=Subtle%20in%20taste%20and%20good,iron%20kadhai%20over%20slow%20fire."><h2 style="font-size: 30px ">Dubuk</h2></a><!--wikipedia of food-->
+      <p style="font-weight: bold; font-size: 20px;">✦ Dubuk is best served with <br>plain rice, Bhang ki Chutney<br>✦The taste ladies and gentlemen is unbeatable!</p><!--food description-->
+    </div>
+  </div>
+</div>
+
+<div class="flip-sig"><!--change food name instead of pakora-->
+  <div class="flip-sig-inner"><!--change food name instead of pakora-->
+    <div class="flip-sig-front"><!--change food name instead of pakora-->
+        <img src="https://qph.fs.quoracdn.net/main-qimg-785ae8fe06d6ed186a093b7949f68411" alt="Avatar" style="width:250px;height:150px;"><!--food image-->
+        <h2 style="font-size: 30px ">Singodi</h2><!--food name-->
+    </div>
+    <div class="flip-sig-back"><!--change food name instead of pakora-->
+        <a href="https://almora.nic.in/cuisines/#:~:text=Subtle%20in%20taste%20and%20good,iron%20kadhai%20over%20slow%20fire."><h2>Singodi</h2></a><!--food wikipedia-->
+      <p style="font-weight: bold; font-size: 20px;">✦This sweet made of Khoya.<br>✦Almora is the most famous place<br> to try Singodi in Uttarakhand.</p><!--food description-->
+    </div>
+  </div>
+</div>
+     <div class="flip-bal"><!--change food name instead of momos-->
+  <div class="flip-bal-inner"><!--change food name instead of momos-->
+    <div class="flip-bal-front"><!--change food name instead of momos-->
+        <img src="https://static.toiimg.com/thumb/msid-75079221,width-800,height-600,resizemode-75,imgsize-659205,pt-32,y_pad-40/75079221.jpg" alt="Avatar" style="width:250px;height:150px;"><!--food image-->
+        <h2 style="font-size: 30px ">Bal Mithai</h2><!--food name-->
+
+    </div>
+    <div class="flip-bal-back"><!--change food name instead of momos-->
+        <a href="https://almora.nic.in/cuisines/#:~:text=Subtle%20in%20taste%20and%20good,iron%20kadhai%20over%20slow%20fire."><h2 style="font-size: 30px">Bal Mithai</h2></a><!--food wikipedia-->
+      <p style="font-weight: bold; font-size: 20px;">✦Bal Mithai has long been a specialty<br> of the Almora district, <br>and neighbouring Kumaon Hills.</p><!--food description-->
+    </div>
+  </div>
+</div>
+</section>
+
+
+    <center style="padding: 270px 10px 40px; font-size:30px; letter-spacing:6px;"><h2 class="head1">Famous   Places   of   Land</h2></center>
+
+
+<section>
+    <div class="flip-bec"><!--change place name instead of saha-->
+  <div class="flip-bec-inner"><!--change place name instead of saha-->
+    <div class="flip-bec-front"><!--change place name instead of saha-->
+        <img src="https://www.euttaranchal.com/tourism/photos/bright-end-corner-6159699.jpg" alt="Avatar" style="width:250px;height:150px;"><!--place url-->
+        <h2 style="font-size: 30px ">Bright End Corner</h2><!--place name-->
+    </div>
+    <div class="flip-bec-back"><!--change place name instead of saha-->
+        <a href="https://www.tourmyindia.com/states/uttarakhand/bright-end-corner-almora.html"><h2>Bright End Corner</h2></a><!--place wikipedia url-->
+      <p style="font-weight: bold; font-size: 20px;"> ✦ Bright End Corner is a<br> must-see attraction of Almora.<br>✦Sunset and sunrise are the most <br>awaited events at Bright End Corner.</p><!--place description-->
+    </div>
+  </div>
+</div>
+    <div class="flip-mat"><!--change place name instead of falls-->
+  <div class="flip-mat-inner"><!--change place name instead of falls-->
+    <div class="flip-mat-front"><!--change place name instead of falls-->
+        <img src="https://www.euttaranchal.com/tourism/timthumb.php?src=https://www.euttaranchal.com/tourism/photos/kalimat-8382104.jpg&w=750&h=510&q=50" alt="Avatar" style="width:250px;height:150px;"><!--place img url-->
+        <h2 style="font-size: 30px ">Kalimat</h2><!--place name-->
+
+    </div>
+    <div class="flip-mat-back"><!--change place name instead of falls-->
+        <a href="https://www.chardhamtours.in/uttarakhand/almora/kalimat_91.html"><h2>Kalimat</h2></a><!--place wikipedia url-->
+      <p style="font-weight: bold; font-size: 20px;">✦Kalimat is a picnic spot located in Almora.<br>✦It is surrounded by dense forest and oak.</p><!--place description-->
+    </div>
+  </div>
+</div>
+    <div class="flip-Deer"><!--change place name instead of tap-->
+  <div class="flip-Deer-inner"><!--change place name instead of tap-->
+    <div class="flip-Deer-front"><!--change place name instead of tap-->
+        <img src="https://roshanpanjiyara.com/wp-content/uploads/2019/10/Deer-Park-1024x576.jpg" alt="Avatar" style="width:250px;height:150px;"><!--place img url-->
+         <h2 style="font-size: 30px ">Deer Park</h2><!--place name-->
+    </div>
+    <div class="flip-Deer-back"><!--change place name instead of tap-->
+        <a href="https://www.trawell.in/uttarakhand/almora/mrig-vihar-zoo-deer-park"><h2>Deer Park</h2></a><!--place wikipedia url-->
+      <p style="font-weight: bold; font-size: 20px;"> ✦Deer Park is one of the major attractions <br>of Almora and it features tall pine trees which add to<br> the rich natural beauty of the place</p><!--place description-->
+    </div>
+  </div>
+</div>
+</section>
+
+
+    <center style="padding: 270px 10px 40px; font-size:30px; letter-spacing:6px; text-decoration: none;"><h2 class="head1">Famous   Handicrafts</h2></center>
+
+
+<section>
+    <div class="flip-car"><!--change craft name instead of aip-->
+  <div class="flip-car-inner"><!--change craft name instead of aip-->
+    <div class="flip-car-front"><!--change place name instead of aip-->
+        <img src="https://asiainch.org/wp-content/uploads/2020/04/unnamed.jpg" alt="Avatar" style="width:250px;height:150px;"><!--craft img url-->
+        <h2 style="font-size: 30px ">Stone carving</h2><!--craft name-->
+
+    </div>
+    <div class="flip-car-back"><!--change craft name instead of aip-->
+        <a href="https://asiainch.org/craft/stone-carving-of-uttrakhand/"><h2>Stone carving</h2></a><!--craft wikipedia url-->
+      <p style="font-weight: bold; font-size: 20px;">✦Almora is famous for its stone carving.<br>
+          ✦Temples in this region are decorated <br>with intricste stone carvings</p><!--craft description-->
+    </div>
+  </div>
+</div>
+    <div class="flip-cu"><!--change craft name instead of aip-->
+  <div class="flip-cu-inner"><!--change craft name instead of aip-->
+    <div class="flip-cu-front"><!--change place name instead of aip-->
+        <img src="https://www.swadesi.com/news/wp-content/uploads/2019/06/copper-craft-set_905.jpg" alt="Avatar" style="width:250px;height:150px;"><!--craft img url-->
+        <h2 style="font-size: 30px ">copperware craft</h2><!--craft name-->
+
+    </div>
+    <div class="flip-cu-back"><!--change craft name instead of aip-->
+        <a href="http://www.uttarakhandcrafts.com/project_single.php?proid=4"><h2>copperware craft</h2></a><!--craft wikipedia url-->
+      <p style="font-weight: bold; font-size: 20px;">✦The origins of Tamta copperware craft <br>can be traced back to 16th century AD,
+          <br> when the Chandravanshi clan of the <br>Rajasthan region migrated to the Almora.</p><!--craft description-->
+    </div>
+  </div>
+</div>
+     <div class="flip-wood"><!--change craft name instead of wood-->
+  <div class="flip-wood-inner"><!--change craft name instead of wood-->
+    <div class="flip-wood-front"><!--change craft name instead of wood-->
+        <img src="http://hikerwolf.com/wp-content/uploads/2020/04/WhatsApp-Image-2020-04-13-at-5.48.53-PM-600x400.jpeg" alt="Avatar" style="width:250px;height:150px;"><!--craft img url-->
+        <h2 style="font-size: 30px ">Wooden Carvings</h2><!--craft name-->
+    </div>
+    <div class="flip-wood-back"><!--change craft name instead of wood-->
+        <a href="https://en.wikipedia.org/wiki/Wood_carving"><h2>Wooden Carvings</h2></a><!--craft wikipedia url-->
+      <p style="font-weight: bold; font-size: 20px;">✦In Almora, people have been making mandir,
+          <br> facades, front decors, doors and many more beautiful
+          <br> wooden things using their 3d engraving technique.
+      </p><!--craft description-->
+    </div>
+  </div>
+</div>
+</section>
+
+<footer>
+  <button onclick="topFunction()" id="scrollToTopBtn" title="Go to top">Top☝</button>
+</footer>
+    </div>
+
+
+</head>
+<body>
+</body>
+</html>
+
+{%endblock%}

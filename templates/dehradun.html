@@ -1,0 +1,981 @@
+{%extends "header.html"%}
+{% block content %}
+
+
+<style>
+                    html, body {
+          width: 100%;
+          height:100%;
+        }
+        * {box-sizing:border-box;
+           border-radius:30px;}
+        body {
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+        #scrollToTopBtn {
+          background-color: black;
+          float:right;
+          border: none;
+          border-radius: 50%;
+          color: white;
+          cursor: pointer;
+          font-size: 16px;
+          line-height: 48px;
+          width: 48px;
+        }
+        #scrollToTopBtn:hover {
+          background-color: #660000;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        .head{
+        font-size: 100px;
+        text-align: center;
+        background-image: linear-gradient(to left, violet, indigo,  blue,black, yellow, orange, red);
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        letter-spacing:6px;
+        }
+        .head1{
+        background-image: linear-gradient(to right, violet, indigo,  blue,black, yellow, orange, red);
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        background-clip: text;
+        color: transparent;
+
+        }
+
+        .slideshow-container {
+          max-width: auto;
+          position: relative;
+          margin: auto;
+        }
+
+
+        .mySlides {
+          display: none;
+        }
+
+
+        .prev, .next {
+          cursor: pointer;
+          position: absolute;
+          top: 50%;
+          width: auto;
+          margin-top: -22px;
+          padding: 16px;
+          color: white;
+          font-weight: bold;
+          font-size: 18px;
+          transition: 0.6s ease;
+          border-radius: 0 3px 3px 0;
+          user-select: none;
+        }
+
+
+        .next {
+          right: 0;
+          border-radius: 3px 0 0 3px;
+        }
+
+
+        .prev:hover, .next:hover {
+          background-color: rgba(0,0,0,0.8);
+        }
+
+
+        .dot {
+          cursor: pointer;
+          height: 15px;
+          width: 15px;
+          margin: 0 2px;
+          background-color: #bbb;
+          border-radius: 50%;
+          display: inline-block;
+          transition: background-color 0.6s ease;
+        }
+
+        .active, .dot:hover {
+          background-color: #717171;
+        }
+
+
+        .fade {
+          -webkit-animation-name: fade;
+          -webkit-animation-duration: 1.5s;
+          animation-name: fade;
+          animation-duration: 1.5s;
+        }
+
+        @-webkit-keyframes fade {
+          from {opacity: .4}
+          to {opacity: 1}
+        }
+
+        @keyframes fade {
+          from {opacity: .4}
+          to {opacity: 1}
+        }
+        .flip-cane {
+          float:left;
+          width:33%;
+          padding:2px;
+          background-color: transparent;
+          height: 200px;
+          border-radius:20%;
+          perspective: 1000px;
+        }
+
+        .flip-cane-inner {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          text-align: center;
+          transition: transform 0.8s;
+          transform-style: preserve-3d;
+        }
+
+        .flip-cane:hover .flip-cane-inner {
+          transform: rotateX(180deg);
+        }
+
+        .flip-cane-front, .flip-cane-back {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+        }
+        .flip-cane-back {
+          transform: rotateX(180deg);
+        }
+
+
+        .flip-paddy {
+          float:left;
+          width:33%;
+          padding:2px;
+          background-color: transparent;
+          height: 200px;
+          border-radius:20%;
+          perspective: 1000px;
+        }
+
+        .flip-paddy-inner {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          text-align: center;
+          transition: transform 0.8s;
+          transform-style: preserve-3d;
+        }
+
+        .flip-paddy:hover .flip-paddy-inner {
+          transform: rotateX(180deg);
+        }
+
+        .flip-paddy-front, .flip-paddy-back {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+        }
+        .flip-paddy-back {
+          transform: rotateX(180deg);
+        }
+
+        .flip-maize {
+          float:left;
+          width:33%;
+          padding:2px;
+          background-color: transparent;
+          height: 200px;
+          border-radius:20%;
+          perspective: 1000px;
+        }
+
+        .flip-maize-inner {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          text-align: center;
+          transition: transform 0.8s;
+          transform-style: preserve-3d;
+        }
+
+        .flip-maize:hover .flip-maize-inner {
+          transform: rotateX(180deg);
+        }
+
+        .flip-maize-front, .flip-maize-back {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+        }
+        .flip-maize-back {
+          transform: rotateX(180deg);
+        }
+
+        .flip-tikki {    /*change name instead of tikki */   /* Note: same name given in html*/
+          float:left;
+          width:33%;
+          padding:2px;
+          background-color: transparent;
+          height: 200px;
+          border-radius:20%;
+          perspective: 1000px;
+        }
+        .flip-tikki-inner {    /*change name instead of tikki */
+          position: relative;
+          width: 100%;
+          height: 100%;
+          text-align: center;
+          transition: transform 0.8s;
+          transform-style: preserve-3d;
+        }
+
+
+        .flip-tikki:hover .flip-tikki-inner {    /*change name instead of tikki */
+          transform: rotateY(180deg);
+        }
+
+
+        .flip-tikki-front, .flip-tikki-back {   /*change name instead of tikki */
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+        }
+
+
+        .flip-tikki-back {    /*change name instead of tikki */
+
+          transform: rotateY(180deg);
+        }
+
+
+        .flip-pakora {   /*change name instead of pakora */
+          float:left;
+          padding:2px;
+          background-color: transparent;
+          width: 33.33%;
+          height: 200px;
+          perspective: 1000px;
+        }
+
+
+        .flip-pakora-inner {    /*change name instead of pakora */
+          position: relative;
+          width: 100%;
+          height: 100%;
+          text-align: center;
+          transition: transform 0.8s;
+          transform-style: preserve-3d;
+        }
+
+
+        .flip-pakora:hover .flip-pakora-inner {    /*change name instead of pakora */
+          transform: rotateY(180deg);
+        }
+
+
+        .flip-pakora-front, .flip-pakora-back {    /*change name instead of pakora */
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+        }
+
+
+        .flip-pakora-back {             /*change name instead of pakora */
+
+          transform: rotateY(180deg);
+        }
+        .flip-momos {    /*change name instead of momos */
+          float:left;
+          width:33.33%;
+          padding:2px;
+          background-color: transparent;
+          height: 200px;
+          border-radius:30%;
+          perspective: 1000px;
+        }
+
+
+        .flip-momos-inner {   /*change name instead of momos */
+          position: relative;
+          width: 100%;
+          height: 100%;
+          text-align: center;
+          transition: transform 0.8s;
+          transform-style: preserve-3d;
+        }
+
+
+        .flip-momos:hover .flip-momos-inner {   /*change name instead of momos */
+          transform: rotateY(180deg);
+        }
+
+
+        .flip-momos-front, .flip-momos-back {   /*change name instead of momos */
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+        }
+
+
+        .flip-momos-back {    /*change name instead of momos */
+
+          transform: rotateY(180deg);
+        }
+        .flip-saha {   /*change name instead of saha */
+          float:left;
+          width:33.33%;
+          padding:2px;
+          background-color: transparent;
+          height: 200px;
+          border-radius:30%;
+          perspective: 1000px;
+        }
+
+
+        .flip-saha-inner {   /*change name instead of saha */
+          position: relative;
+          width: 100%;
+          height: 100%;
+          text-align: center;
+          transition: transform 0.8s;
+          transform-style: preserve-3d;
+        }
+
+
+        .flip-saha:hover .flip-saha-inner {   /*change name instead of saha */
+          transform: rotateY(180deg);
+        }
+
+
+        .flip-saha-front, .flip-saha-back {   /*change name instead of saha */
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+        }
+
+
+        .flip-saha-back {   /*change name instead of saha */
+
+          transform: rotateY(180deg);
+        }
+        .flip-falls {   /*change name instead of falls */
+          float:left;
+          width:33.33%;
+          padding:2px;
+          background-color: transparent;
+          height: 200px;
+          border-radius:30%;
+          perspective: 1000px;
+
+        }
+
+
+        .flip-falls-inner {   /*change name instead of falls */
+          position: relative;
+          width: 100%;
+          height: 100%;
+          text-align: center;
+          transition: transform 0.8s;
+          transform-style: preserve-3d;
+        }
+
+
+        .flip-falls:hover .flip-falls-inner {   /*change name instead of falls */
+          transform: rotateY(180deg);
+        }
+
+
+        .flip-falls-front, .flip-falls-back {   /*change name instead of falls */
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+        }
+
+
+        .flip-falls-back {   /*change name instead of falls */
+
+          transform: rotateY(180deg);
+        }
+        .flip-tap {
+          float:left;
+          width:33.33%;
+          padding:2px;
+          background-color: transparent;
+          height: 200px;
+          border-radius:30%;
+          perspective: 1000px;
+        }
+
+
+        .flip-tap-inner {    /*change name instead of tap */
+          position: relative;
+          width: 100%;
+          height: 100%;
+          text-align: center;
+          transition: transform 0.8s;
+          transform-style: preserve-3d;
+        }
+
+
+        .flip-tap:hover .flip-tap-inner {   /*change name instead of tap */
+          transform: rotateY(180deg);
+        }
+
+
+        .flip-tap-front, .flip-tap-back {   /*change name instead of tap */
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+        }
+
+
+        .flip-tap-back {    /*change name instead of tap */
+
+          transform: rotateY(180deg);
+        }
+        .flip-aip {   /*change name instead of aip */
+          float:left;
+          width:33.33%;
+          padding:2px;
+          background-color: transparent;
+          height: 200px;
+          border-radius:30%;
+          perspective: 1000px;
+
+        }
+
+
+        .flip-aip-inner {   /*change name instead of aip */
+          position: relative;
+          width: 100%;
+          height: 100%;
+          text-align: center;
+          transition: transform 0.8s;
+          transform-style: preserve-3d;
+        }
+
+
+        .flip-aip:hover .flip-aip-inner {    /*change name instead of aip */
+          transform: rotateY(180deg);
+        }
+
+
+        .flip-aip-front, .flip-aip-back {    /*change name instead of aip */
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+        }
+
+
+        .flip-aip-back {    /*change name instead of aip */
+
+          transform: rotateY(180deg);
+        }
+        .flip-wool {    /*change name instead of wool */
+          float:left;
+          width:33.33%;
+          padding:2px;
+          background-color: transparent;
+          height: 200px;
+          border-radius:30%;
+          perspective: 1000px;
+
+        }
+
+
+        .flip-wool-inner {    /*change name instead of wool */
+          position: relative;
+          width: 100%;
+          height: 100%;
+          text-align: center;
+          transition: transform 0.8s;
+          transform-style: preserve-3d;
+        }
+
+
+        .flip-wool:hover .flip-wool-inner {    /*change name instead of wool */
+          transform: rotateY(180deg);
+        }
+
+
+        .flip-wool-front, .flip-wool-back {    /*change name instead of wool */
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+        }
+
+
+        .flip-wool-back {    /*change name instead of wool */
+
+          transform: rotateY(180deg);
+        }
+        .flip-wood {    /*change name instead of wood */
+          float:left;
+          width:33.33%;
+          padding:2px;
+          background-color: transparent;
+          height: 200px;
+          border-radius:30%;
+          perspective: 1000px;
+        }
+
+
+        .flip-wood-inner {    /*change name instead of wood */
+          position: relative;
+          width: 100%;
+          height: 100%;
+          text-align: center;
+          transition: transform 0.8s;
+          transform-style: preserve-3d;
+        }
+
+
+        .flip-wood:hover .flip-wood-inner {    /*change name instead of wood */
+          transform: rotateY(180deg);
+        }
+
+
+        .flip-wood-front, .flip-wood-back {    /*change name instead of wood */
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+        }
+
+
+        .flip-wood-back {    /*change name instead of wood */
+
+          transform: rotateY(180deg);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+</style>
+
+
+<script>
+            var slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+          showSlides(slideIndex += n);
+        }
+        function currentSlide(n) {
+          showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+          var i;
+          var slides = document.getElementsByClassName("mySlides");
+          var dots = document.getElementsByClassName("dot");
+          if (n > slides.length) {slideIndex = 1}
+          if (n < 1) {slideIndex = slides.length}
+          for (i = 0; i < slides.length; i++) {
+              slides[i].style.display = "none";
+          }
+          for (i = 0; i < dots.length; i++) {
+              dots[i].className = dots[i].className.replace(" active", "");
+          }
+          slides[slideIndex-1].style.display = "block";
+          dots[slideIndex-1].className += " active";
+        }
+        var slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+          var i;
+          var slides = document.getElementsByClassName("mySlides");
+          for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+          }
+          slideIndex++;
+          if (slideIndex > slides.length) {slideIndex = 1}
+          slides[slideIndex-1].style.display = "block";
+          setTimeout(showSlides, 3000);
+        }
+        mybutton = document.getElementById("scrollToTopBtn");
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+          } else {
+            mybutton.style.display = "none";
+          }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+          document.body.scrollTop = 0; // For Safari
+          document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        }
+
+
+
+
+
+
+
+
+
+</script>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Dehradun</title><!--web page title-->
+    <link rel="icon" type="image/x-icon"
+          href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTBu7Gk2BSF-bJ_J0n9deC1Ft3ShrNSkcSUQ&usqp=CAU">
+    <!--web page icon-->
+    <link rel="stylesheet" href="deh.css">
+    <script src="deh.js"></script>
+
+
+    <div class="slideshow-container">
+        <div class="mySlides fade">
+            <img src="https://uttarakhandtourism.gov.in/sites/default/files/2021-11/Kedarnath2.jpeg">
+            <!--slideshow img URL-->
+        </div>
+
+        <div class="mySlides fade">
+            <img src="https://uttarakhandtourism.gov.in/sites/default/files/2021-02/Chaliya-Dance_0.jpg">
+            <!--slideshow img URL-->
+        </div>
+
+        <div class="mySlides fade">
+            <img src="https://uttarakhandtourism.gov.in/sites/default/files/2021-11/Rishikesh.jpg">
+            <!--slideshow img URL-->
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+    <br>
+
+
+    <div style="text-align:center">
+        <span class="dot" onmouseover="currentSlide(1)"></span>
+        <span class="dot" onmouseover="currentSlide(2)"></span>
+        <span class="dot" onmouseover="currentSlide(3)"></span>
+    </div>
+
+
+    <h1 class="head">DEHRADUN</h1><!--district name on top of page-->
+   <center><h2 style="letter-spacing:2px; text-decoration: line-through;" class="head1">  WEATHER <label id="weather-scroll"> </label></h2></center>
+    <center><h2><span style="font-weight:660">date&time:</span> {{d_t}}</h2></center>
+
+    <center><h2><span style="font-weight:660">celsius:</span> {{celsius}} C </h2></center>
+
+    <center><h2><span style="font-weight:660">fahrenheit:</span> {{fahrenheit}} F </h2></center>
+
+    <center><h2><span style="font-weight:660">condition:</span> {{condition}} <img src="{{icon}}" ALIGN=”center”
+                                                                                   alt="Los Angeles"
+                                                                                   class="icon"></h2></center>
+
+
+
+    <center style="padding: 100px 10px 40px; font-size:30px;  letter-spacing:6px;"><h2 class="head1">Crops</h2></center>
+    <div>
+        <div class="flip-cane"><!--change food name instead of cane-->
+            <div class="flip-cane-inner"><!--change food name instead of cane-->
+                <div class="flip-cane-front"><!--change food name instead of cane-->
+                    <img src="https://www.bakingbusiness.com/ext/resources/2019/12/SugarCane_Lead.jpg?t=1575906447&width=1080"
+                         alt="Avatar" style="width:250px;height:150px;"><!--crop image url-->
+                    <h2 style="font-size: 30px ">Sugarcane</h2><!--crop name-->
+
+                </div>
+                <div class="flip-cane-back"><!--change crop name instead of cane-->
+                    <p style="font-weight: bold; font-size: 20px;">🎋Sugarcane ---＞ Summer crop
+                        <br>🎋suitable soil --＞ Loamy soil<br>🎋Temperature --＞ 21°C to 27°C</p><!--crop description-->
+                    <a href="https://www.netafimindia.com/crop-knowledge/sugarcane/#:~:text=Netafim's%20Subsurface%20Drip%20Irrigation%20helps,req
+                uired%20quantities%20and%20when%20required.&text=The%20typical%20discharge%20rate%20is,similar%20to%20the%20surface%20irrigation.">
+                        <h2>irrigation : Drip irrigation</h2></a><!--wikipedia of crop-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <div class="flip-paddy"><!--change food name instead of cane-->
+            <div class="flip-paddy-inner"><!--change food name instead of cane-->
+                <div class="flip-paddy-front"><!--change food name instead of cane-->
+                    <img src="https://www.agrifarming.in/wp-content/uploads/2018/09/Scope-and-Importance-of-Rice..jpg"
+                         alt="Avatar" style="width:250px;height:150px;"><!--crop image url-->
+                    <h2 style="font-size: 30px ">Paddy</h2><!--crop name-->
+
+                </div>
+                <div class="flip-paddy-back"><!--change crop name instead of cane-->
+                    <p style="font-weight: bold; font-size: 20px;">🌾Paddy ---＞ Summer & Winter crop
+                        <br>🌾suitable soil --＞Alluvial soil<br>🌾Temperature --＞ 25°C and 35°C</p>
+                    <!--crop description-->
+                    <a href="https://www.aucom.com/industries/irrigation/rice-field-flood-irrigation"><h2>irrigation :
+                        flood irrigation</h2></a><!--wikipedia of crop-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <div class="flip-maize"><!--change food name instead of cane-->
+            <div class="flip-maize-inner"><!--change food name instead of cane-->
+                <div class="flip-maize-front"><!--change food name instead of cane-->
+                    <img src="https://apseeds.ap.gov.in/Assets/Images/maize.jpeg" alt="Avatar"
+                         style="width:250px;height:150px;"><!--crop image url-->
+                    <h2 style="font-size: 30px ">Maize</h2><!--crop name-->
+
+                </div>
+                <div class="flip-maize-back"><!--change crop name instead of cane-->
+                    <p style="font-weight: bold; font-size: 20px;">🌽Maize ---＞ Summer crop
+                        <br>🌽suitable soil --＞clay loam soil<br>🌽Temperature --＞ 21°C and 27°C</p>
+                    <!--crop description-->
+                    <a href="https://www.gestiriego.com/en/drip-irrigation-in-the-corn-crop/"><h2>irrigation : Drip
+                        irrigation</h2></a><!--wikipedia of crop-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <center style="padding: 270px 10px 40px; font-size:30px;  letter-spacing:6px;"><h2 class="head1">Flavours of
+        Land</h2></center>
+
+
+    <section>
+        <div class="flip-tikki"><!--change food name instead of tikki-->
+            <div class="flip-tikki-inner"><!--change food name instead of tikki-->
+                <div class="flip-tikki-front"><!--change food name instead of tikki-->
+                    <img src="https://image.scoopwhoop.com/w360/s4.scoopwhoop.com/anj/bun/f7556b48-cd2d-4b63-95b1-a9c1b3f82dc6.jpg.webp"
+                         alt="Avatar" style="width:250px;height:150px;"><!--food image url-->
+                    <h2 style="font-size: 30px ">Bun Tikki</h2><!--food name-->
+
+                </div>
+                <div class="flip-tikki-back"><!--change food name instead of tikki-->
+                    <a href="https://www.connectingtraveller.com/place-to-visit-in/dehradun/bun-tikki-in-dehradun"><h2
+                            style="font-size: 30px ">Bun Tikki</h2></a><!--wikipedia of food-->
+                    <p style="font-weight: bold; font-size: 20px;">✦Dehradun is best known for its<br> multi cuisines
+                        from North Indian.<br>
+                        Dehradun's famous lip-smacking street<br> food is BUN TIKKI.</p><!--food description-->
+                </div>
+            </div>
+        </div>
+
+        <div class="flip-pakora"><!--change food name instead of pakora-->
+            <div class="flip-pakora-inner"><!--change food name instead of pakora-->
+                <div class="flip-pakora-front"><!--change food name instead of pakora-->
+                    <img src="https://i.ytimg.com/vi/rDwIw2KlpkA/maxresdefault.jpg" alt="Avatar"
+                         style="width:250px;height:150px;"><!--food image-->
+                    <h2 style="font-size: 30px ">Bread Pakora</h2><!--food name-->
+                </div>
+                <div class="flip-pakora-back"><!--change food name instead of pakora-->
+                    <a href="https://www.indianhealthyrecipes.com/bread-pakora-recipe/"><h2>Bread Pakora</h2></a>
+                    <!--food wikipedia-->
+                    <p style="font-weight: bold; font-size: 20px;">✦Bread Pakora is not a common <br>thing in Indian
+                        homes.<br>
+                        It is quite popular in <br>the streets of Dehradun.</p><!--food description-->
+                </div>
+            </div>
+        </div>
+        <div class="flip-momos"><!--change food name instead of momos-->
+            <div class="flip-momos-inner"><!--change food name instead of momos-->
+                <div class="flip-momos-front"><!--change food name instead of momos-->
+                    <img src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/pau8ncamwfjqgxamzbfu"
+                         alt="Avatar" style="width:250px;height:150px;"><!--food image-->
+                    <h2 style="font-size: 30px ">Momos</h2><!--food name-->
+
+                </div>
+                <div class="flip-momos-back"><!--change food name instead of momos-->
+                    <a href="https://www.crazymasalafood.com/top-20-momo-shops-dehradun/"><h2 style="font-size: 30px">
+                        Momos</h2></a><!--food wikipedia-->
+                    <p style="font-weight: bold; font-size: 20px;">✦Momos is the most loved<br> street food in Dehradun.
+                        <br>For most Doonites,
+                        <br>momos are part of their<br> daily cuisine.</p><!--food description-->
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <center style="padding: 270px 10px 40px; font-size:30px; letter-spacing:6px;"><h2 class="head1">Famous Places of
+        Land</h2></center>
+
+
+    <section>
+        <div class="flip-saha"><!--change place name instead of saha-->
+            <div class="flip-saha-inner"><!--change place name instead of saha-->
+                <div class="flip-saha-front"><!--change place name instead of saha-->
+                    <img src="https://www.fabhotels.com/blog/wp-content/uploads/2019/04/Sahastradhara1.jpg" alt="Avatar"
+                         style="width:250px;height:150px;"><!--place url-->
+                    <h2 style="font-size: 30px ">Sahastradhara</h2><!--place name-->
+                </div>
+                <div class="flip-saha-back"><!--change place name instead of saha-->
+                    <a href="https://en.wikipedia.org/wiki/Sahasradhara"><h2>Sahastradhara</h2></a>
+                    <!--place wikipedia url-->
+                    <p style="font-weight: bold; font-size: 20px;"> ✦Sahastradhara, also known as <br>‘Thousand Fold
+                        Spring’,
+                        <br> is a beautiful place surrounded <br>by caves and the Baldi River.<br>
+                    </p><!--place description-->
+                </div>
+            </div>
+        </div>
+        <div class="flip-falls"><!--change place name instead of falls-->
+            <div class="flip-falls-inner"><!--change place name instead of falls-->
+                <div class="flip-falls-front"><!--change place name instead of falls-->
+                    <img src="https://www.fabhotels.com/blog/wp-content/uploads/2019/04/Tiger-waterfall.jpg"
+                         alt="Avatar" style="width:250px;height:150px;"><!--place img url-->
+                    <h2 style="font-size: 30px ">Tiger Falls</h2><!--place name-->
+
+                </div>
+                <div class="flip-falls-back"><!--change place name instead of falls-->
+                    <a href="https://en.wikipedia.org/wiki/Tiger_Falls"><h2>Tiger Falls</h2></a>
+                    <!--place wikipedia url-->
+                    <p style="font-weight: bold; font-size: 20px;">✦Tiger Falls, situated in the beautiful forests of
+                        Chakrata,
+                        <br>offers pristine views of Mother Nature.<br> With an elevation of 312 m, <br>
+                        this is one of the highest direct waterfalls in India.
+                    </p><!--place description-->
+                </div>
+            </div>
+        </div>
+        <div class="flip-tap"><!--change place name instead of tap-->
+            <div class="flip-tap-inner"><!--change place name instead of tap-->
+                <div class="flip-tap-front"><!--change place name instead of tap-->
+                    <img src="https://www.fabhotels.com/blog/wp-content/uploads/2019/04/Tapkeshawar-Temple.jpg"
+                         alt="Avatar" style="width:250px;height:150px;"><!--place img url-->
+                    <h2 style="font-size: 30px ">Tapkeshwar Temple </h2><!--place name-->
+                </div>
+                <div class="flip-tap-back"><!--change place name instead of tap-->
+                    <a href="https://en.wikipedia.org/wiki/Tiger_Falls"><h2>Tapkeshwar Temple</h2></a>
+                    <!--place wikipedia url-->
+                    <p style="font-weight: bold; font-size: 20px;"> ✦Tapkeshwar Temple in Dehradun,<br> also known as
+                        Tapkeshwar Mahadev Temple.<br>Water drops from the ceiling of the cave
+                        <br> trickle down over the shivalinga in a continuous downpour,
+                        <br> making for an interesting spectacle.
+                    </p><!--place description-->
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <center style="padding: 270px 10px 40px; font-size:30px; letter-spacing:6px; text-decoration: none;"><h2
+            class="head1">Famous Handicrafts</h2></center>
+
+
+    <section>
+        <div class="flip-aip"><!--change craft name instead of aip-->
+            <div class="flip-aip-inner"><!--change craft name instead of aip-->
+                <div class="flip-aip-front"><!--change place name instead of aip-->
+                    <img src="https://i.ytimg.com/vi/Qc5LhbwRmOE/mqdefault.jpg" alt="Avatar"
+                         style="width:250px;height:150px;"><!--craft img url-->
+                    <h2 style="font-size: 30px ">Aipan Folk Art</h2><!--craft name-->
+
+                </div>
+                <div class="flip-aip-back"><!--change craft name instead of aip-->
+                    <a href="https://en.wikipedia.org/wiki/Aipan_art"><h2>Aipan Folk Art</h2></a>
+                    <!--craft wikipedia url-->
+                    <p style="font-weight: bold; font-size: 20px;">✦Aipan is one of the traditional art of Dehradun.
+                        <br>The art is done mainly during special occasions,<br> household ceremonies and rituals.
+                    </p><!--craft description-->
+                </div>
+            </div>
+        </div>
+        <div class="flip-wool"><!--change craft name instead of wool-->
+            <div class="flip-wool-inner"><!--change craft name instead of wool-->
+                <div class="flip-wool-front"><!--change craft name instead of wool-->
+                    <img src="https://assets.traveltriangle.com/blog/wp-content/uploads/2018/03/Woollen-garments.jpg"
+                         alt="Avatar" style="width:250px;height:150px;"><!--craft img url-->
+                    <h2 style="font-size: 30px ">Woolen Garments</h2><!--craft name-->
+                </div>
+                <div class="flip-wool-back"><!--change craft name instead of wool-->
+                    <a href="https://www.quora.com/Where-can-one-get-good-quality-winter-apparel-in-Dehradun-at-a-genuine-price">
+                        <h2>Woolen Garments</h2></a><!--craft wikipedia url-->
+                    <p style="font-weight: bold; font-size: 20px;">✦As Dehradun is a winter capital,<br> it is famous
+                        for its woolen materials.
+                        <br>woolen garments are exclusive in dehradun.<br>
+                    </p><!--craft description-->
+                </div>
+            </div>
+        </div>
+        <div class="flip-wood"><!--change craft name instead of wood-->
+            <div class="flip-wood-inner"><!--change craft name instead of wood-->
+                <div class="flip-wood-front"><!--change craft name instead of wood-->
+                    <img src="http://hikerwolf.com/wp-content/uploads/2020/04/WhatsApp-Image-2020-04-13-at-5.48.53-PM-600x400.jpeg"
+                         alt="Avatar" style="width:250px;height:150px;"><!--craft img url-->
+                    <h2 style="font-size: 30px ">Wooden Carvings</h2><!--craft name-->
+                </div>
+                <div class="flip-wood-back"><!--change craft name instead of wood-->
+                    <a href="https://en.wikipedia.org/wiki/Wood_carving"><h2>Wooden Carvings</h2></a>
+                    <!--craft wikipedia url-->
+                    <p style="font-weight: bold; font-size: 20px;">✦In Dehradun, people have been making mandir,
+                        <br> facades, front decors, doors and many more beautiful
+                        <br> wooden things using their 3d engraving technique.
+                    </p><!--craft description-->
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer>
+        <button onclick="topFunction()" id="scrollToTopBtn" title="Go to top">Top☝</button>
+    </footer>
+    </div>
+
+
+</head>
+<body>
+</body>
+</html>
+{%endblock%}

@@ -1,0 +1,969 @@
+{%extends "header.html"%}
+{% block content %}
+
+
+<style>
+
+    html, body {
+  width: 100%;
+  height:100%;
+}
+* {box-sizing:border-box;
+   border-radius:30px;}
+body {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+}
+#scrollToTopBtn {
+  background-color: black;
+  float:right;
+  border: none;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 48px;
+  width: 48px;
+}
+#scrollToTopBtn:hover {
+  background-color: #660000;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+.head{
+font-size: 100px;
+text-align: center;
+background-image: linear-gradient(to left, violet, indigo,  blue,black, yellow, orange, red);
+-webkit-background-clip: text;
+-moz-background-clip: text;
+background-clip: text;
+color: transparent;
+letter-spacing:6px;
+}
+.head1{
+background-image: linear-gradient(to right, violet, indigo,  blue,black, yellow, orange, red);
+-webkit-background-clip: text;
+-moz-background-clip: text;
+background-clip: text;
+color: transparent;
+}
+
+.slideshow-container {
+  max-width: auto;
+  position: relative;
+  margin: auto;
+}
+
+
+.mySlides {
+  display: none;
+}
+
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+.flip-wheat {
+  float:left;
+  width:33%;
+  padding:2px;
+  background-color: transparent;
+  height: 200px;
+  border-radius:20%;
+  perspective: 1000px;
+}
+
+.flip-wheat-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-wheat:hover .flip-wheat-inner {
+  transform: rotateX(180deg);
+}
+
+.flip-wheat-front, .flip-wheat-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.flip-wheat-back {
+  transform: rotateX(180deg);
+}
+
+
+.flip-paddy {
+  float:left;
+  width:33%;
+  padding:2px;
+  background-color: transparent;
+  height: 200px;
+  border-radius:20%;
+  perspective: 1000px;
+}
+
+.flip-paddy-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-paddy:hover .flip-paddy-inner {
+  transform: rotateX(180deg);
+}
+
+.flip-paddy-front, .flip-paddy-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.flip-paddy-back {
+  transform: rotateX(180deg);
+}
+
+.flip-ragi {
+  float:left;
+  width:33%;
+  padding:2px;
+  background-color: transparent;
+  height: 200px;
+  border-radius:20%;
+  perspective: 1000px;
+}
+
+.flip-ragi-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-ragi:hover .flip-ragi-inner {
+  transform: rotateX(180deg);
+}
+
+.flip-ragi-front, .flip-ragi-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.flip-ragi-back {
+  transform: rotateX(180deg);
+}
+
+.flip-bal {    /*change name instead of tikki */   /* Note: same name given in html*/
+  float:left;
+  width:33%;
+  padding:2px;
+  background-color: transparent;
+  height: 200px;
+  border-radius:20%;
+  perspective: 1000px;
+}
+.flip-bal-inner {    /*change name instead of tikki */
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+
+.flip-bal:hover .flip-bal-inner {    /*change name instead of tikki */
+  transform: rotateY(180deg);
+}
+
+
+.flip-bal-front, .flip-bal-back {   /*change name instead of tikki */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+
+.flip-bal-back {    /*change name instead of tikki */
+
+  transform: rotateY(180deg);
+}
+
+
+.flip-gul {   /*change name instead of pakora */
+  float:left;
+  padding:2px;
+  background-color: transparent;
+  width: 33.33%;
+  height: 200px;
+  perspective: 1000px;
+}
+
+
+.flip-gul-inner {    /*change name instead of pakora */
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+
+.flip-gul:hover .flip-gul-inner {    /*change name instead of pakora */
+  transform: rotateY(180deg);
+}
+
+
+.flip-gul-front, .flip-gul-back {    /*change name instead of pakora */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+
+.flip-gul-back {             /*change name instead of pakora */
+
+  transform: rotateY(180deg);
+}
+.flip-ras {    /*change name instead of momos */
+  float:left;
+  width:33.33%;
+  padding:2px;
+  background-color: transparent;
+  height: 200px;
+  border-radius:30%;
+  perspective: 1000px;
+}
+
+
+.flip-ras-inner {   /*change name instead of momos */
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+
+.flip-ras:hover .flip-ras-inner {   /*change name instead of momos */
+  transform: rotateY(180deg);
+}
+
+
+.flip-ras-front, .flip-ras-back {   /*change name instead of momos */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+
+.flip-ras-back {    /*change name instead of momos */
+
+  transform: rotateY(180deg);
+}
+.flip-naini {   /*change name instead of saha */
+  float:left;
+  width:33.33%;
+  padding:2px;
+  background-color: transparent;
+  height: 200px;
+  border-radius:30%;
+  perspective: 1000px;
+}
+
+
+.flip-naini-inner {   /*change name instead of saha */
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+
+.flip-naini:hover .flip-naini-inner {   /*change name instead of saha */
+  transform: rotateY(180deg);
+}
+
+
+.flip-naini-front, .flip-naini-back {   /*change name instead of saha */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+
+.flip-naini-back {   /*change name instead of saha */
+
+  transform: rotateY(180deg);
+}
+.flip-mall {   /*change name instead of falls */
+  float:left;
+  width:33.33%;
+  padding:2px;
+  background-color: transparent;
+  height: 200px;
+  border-radius:30%;
+  perspective: 1000px;
+
+}
+
+
+.flip-mall-inner {   /*change name instead of falls */
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+
+.flip-mall:hover .flip-mall-inner {   /*change name instead of falls */
+  transform: rotateY(180deg);
+}
+
+
+.flip-mall-front, .flip-mall-back {   /*change name instead of falls */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+
+.flip-mall-back {   /*change name instead of falls */
+
+  transform: rotateY(180deg);
+}
+.flip-rope {
+  float:left;
+  width:33.33%;
+  padding:2px;
+  background-color: transparent;
+  height: 200px;
+  border-radius:30%;
+  perspective: 1000px;
+}
+
+
+.flip-rope-inner {    /*change name instead of tap */
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+
+.flip-rope:hover .flip-rope-inner {   /*change name instead of tap */
+  transform: rotateY(180deg);
+}
+
+
+.flip-rope-front, .flip-rope-back {   /*change name instead of tap */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+
+.flip-rope-back {    /*change name instead of tap */
+
+  transform: rotateY(180deg);
+}
+.flip-can {   /*change name instead of aip */
+  float:left;
+  width:33.33%;
+  padding:2px;
+  background-color: transparent;
+  height: 200px;
+  border-radius:30%;
+  perspective: 1000px;
+
+}
+
+
+.flip-can-inner {   /*change name instead of aip */
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+
+.flip-can:hover .flip-can-inner {    /*change name instead of aip */
+  transform: rotateY(180deg);
+}
+
+
+.flip-can-front, .flip-can-back {    /*change name instead of aip */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+
+.flip-can-back {    /*change name instead of aip */
+
+  transform: rotateY(180deg);
+}
+.flip-woollen {    /*change name instead of wool */
+  float:left;
+  width:33.33%;
+  padding:2px;
+  background-color: transparent;
+  height: 200px;
+  border-radius:30%;
+  perspective: 1000px;
+
+}
+
+
+.flip-woollen-inner {    /*change name instead of wool */
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+
+.flip-woollen:hover .flip-woollen-inner {    /*change name instead of wool */
+  transform: rotateY(180deg);
+}
+
+
+.flip-woollen-front, .flip-woollen-back {    /*change name instead of wool */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+
+.flip-woollen-back {    /*change name instead of wool */
+
+  transform: rotateY(180deg);
+}
+.flip-aipan {    /*change name instead of wood */
+  float:left;
+  width:33.33%;
+  padding:2px;
+  background-color: transparent;
+  height: 200px;
+  border-radius:30%;
+  perspective: 1000px;
+}
+
+
+.flip-aipan-inner {    /*change name instead of wood */
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+
+.flip-aipan:hover .flip-aipan-inner {    /*change name instead of wood */
+  transform: rotateY(180deg);
+}
+
+
+.flip-aipan-front, .flip-aipan-back {    /*change name instead of wood */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+
+.flip-aipan-back {    /*change name instead of wood */
+
+  transform: rotateY(180deg);
+}
+
+
+
+</style>
+
+<Script>
+
+    var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+}
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}
+  slides[slideIndex-1].style.display = "block";
+  setTimeout(showSlides,1900);
+}
+mybutton = document.getElementById("scrollToTopBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
+
+
+</Script>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>NAINITAL</title><!--web page title-->
+    <link rel="icon" type="image/x-icon" href="images/c.jpg"><!--web page icon-->
+    <link rel="stylesheet" href="nainital.css">
+    <script src="nainital.js"></script>
+
+
+    <div class="slideshow-container">
+        <div class="mySlides fade">
+            <center> <img src="https://uttarakhandtourism.gov.in/sites/default/files/2021-01/Banner_Nainital1.jpg"  width="800" height="400"></center>
+            <!--slideshow img URL-->
+        </div>
+
+        <div class="mySlides fade">
+             <center><img src="https://uttarakhandtourism.gov.in/sites/default/files/2021-01/Banner_Nainital%202.jpg"  width="800" height="400"></center>
+            <!--slideshow img URL-->
+        </div>
+
+        <div class="mySlides fade">
+            <center> <img src="https://uttarakhandtourism.gov.in/sites/default/files/2020-07/nainital%20in%20winters%20100X62.jpg"  width="800" height="400"></center>
+            <!--slideshow img URL-->
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+    <br>
+
+
+    <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
+
+
+    <h1 class="head">NAINITAL</h1><!--district name on top of page-->
+
+    <center><h2 style="letter-spacing:2px; text-decoration: line-through;" class="head1"> WEATHER <label
+            id="weather-scroll"> </label></h2></center>
+    <center><h2><span style="font-weight:660">date&time:</span> {{d_t}}</h2></center>
+
+    <center><h2><span style="font-weight:660">celsius:</span> {{celsius}} C </h2></center>
+
+    <center><h2><span style="font-weight:660">fahrenheit:</span> {{fahrenheit}} F </h2></center>
+
+    <center><h2><span style="font-weight:660">condition:</span> {{condition}} <img src="{{icon}}" ALIGN=”center”
+                                                                                   alt="Los Angeles"
+                                                                                   class="icon"></h2></center>
+
+
+
+    <center style="padding: 100px 10px 40px; font-size:30px;  letter-spacing:6px;"><h2 class="head1">Crops</h2></center>
+    <div>
+        <div class="flip-wheat"><!--change food name instead of cane-->
+            <div class="flip-wheat-inner"><!--change food name instead of cane-->
+                <div class="flip-wheat-front"><!--change food name instead of cane-->
+                    <img src="https://5.imimg.com/data5/MF/UA/QD/SELLER-77100760/wheat-seed-hd-2967--500x500.jpg"
+                         alt="Avatar" style="width:250px;height:150px;"><!--crop image url-->
+                    <h2 style="font-size: 30px ">Wheat</h2><!--crop name-->
+
+                </div>
+                <div class="flip-wheat-back"><!--change crop name instead of cane-->
+                    <p style="font-weight: bold; font-size: 20px;">🎋Wheat ---＞ Winter crop
+                        <br>🎋suitable soil --＞ Fertile Alluvial soil<br>🎋Temperature --＞ 20°C to 25°C</p>
+                    <!--crop description-->
+                    <a href=""><h2>irrigation : Drip irrigation</h2></a><!--wikipedia of crop-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <div class="flip-paddy"><!--change food name instead of cane-->
+            <div class="flip-paddy-inner"><!--change food name instead of cane-->
+                <div class="flip-paddy-front"><!--change food name instead of cane-->
+                    <img alt="Avatar"
+                         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHv1RLjAXaUsQGPfNe65pvXOajKeRjGGmQjg&usqp=CAU"
+                         style="width:250px;height:150px;"><!--crop image url-->
+                    <h2 style="font-size: 30px ">Paddy</h2><!--crop name-->
+
+                </div>
+                <div class="flip-paddy-back"><!--change crop name instead of cane-->
+                    <p style="font-weight: bold; font-size: 20px;">🌾Paddy ---＞ Summer & Winter crop
+                        <br>🌾suitable soil --＞Alluvial soil<br>🌾Temperature --＞ 25°C and 35°C</p>
+                    <!--crop description-->
+                    <a href=""><h2>irrigation : flood irrigation</h2></a><!--wikipedia of crop-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <div class="flip-ragi"><!--change food name instead of cane-->
+            <div class="flip-ragi-inner"><!--change food name instead of cane-->
+                <div class="flip-ragi-front"><!--change food name instead of cane-->
+                    <img src="https://thumbs.dreamstime.com/b/ragi-flour-powerhouse-health-benefiting-nutrients-help-reducing-weight-also-acts-as-treatment-multiple-60897720.jpg"
+                         alt="Avatar" style="width:250px;height:150px;"><!--crop image url-->
+                    <h2 style="font-size: 30px ">Ragi</h2><!--crop name-->
+
+                </div>
+                <div class="flip-ragi-back"><!--change crop name instead of cane-->
+                    <p style="font-weight: bold; font-size: 20px;">🌽Ragi ---＞ Winter crop
+                        <br>🌽suitable soil --＞red lateritic soil<br>🌽Temperature --＞ 27°C</p><!--crop description-->
+                    <a href="https://www.gestiriego.com/en/drip-irrigation-in-the-corn-crop/"><h2>irrigation : Drip
+                        irrigation</h2></a><!--wikipedia of crop-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <center style="padding: 270px 10px 40px; font-size:30px;  letter-spacing:6px;"><h2 class="head1">Flavours of
+        Land</h2></center>
+
+
+    <section>
+        <div class="flip-bal">
+            <div class="flip-bal-inner"><!--change food name instead of tikki-->
+                <div class="flip-bal-front"><!--change food name instead of tikki-->
+                    <img src="https://res.cloudinary.com/purnesh/image/upload/w_1000,f_auto,q_auto:eco,c_limit/bal-mithai.jpg"
+                         alt="Avatar" style="width:250px;height:150px;"><!--food image url-->
+                    <h2 style="font-size: 30px ">Bal-Mithai</h2><!--food name-->
+
+                </div>
+                <div class="flip-bal-back"><!--change food name instead of tikki-->
+                    <a href="https://en.wikipedia.org/wiki/Bal_mithai"><h2 style="font-size: 30px ">Bal-Mithai</h2></a>
+                    <!--wikipedia of food-->
+                    <p style="font-weight: bold; font-size: 20px;">✦ Bal mithai originated in the Uttarakhand region.
+                        It was an invention of Lala Joga Shah of Lal Bazaar, Almora, in the early twentieth century.
+                        Scholars believe that bal mithai must have been
+                        offering to the Sun God.</p><!--food description-->
+                </div>
+            </div>
+        </div>
+
+        <div class="flip-gul"><!--change food name instead of pakora-->
+            <div class="flip-gul-inner"><!--change food name instead of pakora-->
+                <div class="flip-gul-front"><!--change food name instead of pakora-->
+                    <img src="https://res.cloudinary.com/purnesh/image/upload/w_1000,f_auto,q_auto:eco,c_limit/gulgula.jpg"
+                         alt="Avatar" style="width:250px;height:150px;"><!--food image-->
+                    <h2 style="font-size: 30px ">Gulgula</h2><!--food name-->
+                </div>
+                <div class="flip-gul-back"><!--change food name instead of pakora-->
+                    <a href="https://en.wikipedia.org/wiki/Gulgula_(doughnut)"><h2>Gulgula</h2></a><!--food wikipedia-->
+                    <p style="font-weight: bold; font-size: 20px;">✦ Gulgula is traditional sweet made in different
+                        regions of Uttarkhand mainly in Nainital.
+                        It is one of the most popular sweets in the market places,
+                        it is traditionally made on specific festive occasions in rural areas.</p>
+                    <!--food description-->
+                </div>
+            </div>
+        </div>
+        <div class="flip-ras"><!--change food name instead of momos-->
+            <div class="flip-ras-inner"><!--change food name instead of momos-->
+                <div class="flip-ras-front"><!--change food name instead of momos-->
+                    <img src="https://res.cloudinary.com/purnesh/image/upload/w_1000,f_auto,q_auto:eco,c_limit/ras55.jpg"
+                         alt="Avatar" style="width:250px;height:150px;"><!--food image-->
+                    <h2 style="font-size: 30px ">Ras</h2><!--food name-->
+
+                </div>
+                <div class="flip-ras-back"><!--change food name instead of momos-->
+                    <a href="https://jyotsna-pant.blogspot.com/2013/09/ras-and-gude-uttarankands-thick-black.html"><h2
+                            style="font-size: 30px">Ras</h2></a><!--food wikipedia-->
+                    <p style="font-weight: bold; font-size: 20px;">✦ Ras which is a thick black color soup made from the
+                        mixture of whole pulses available in Uttarankahand
+                        in some parts (Pithoragarh) it is called Chudkani.</p><!--food description-->
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <center style="padding: 270px 10px 40px; font-size:30px; letter-spacing:6px;"><h2 class="head1">Famous Places of
+        Land</h2></center>
+
+
+    <section>
+        <div class="flip-naini"><!--change place name instead of saha-->
+            <div class="flip-naini-inner"><!--change place name instead of saha-->
+                <div class="flip-naini-front"><!--change place name instead of saha-->
+                    <img src="https://www.euttaranchal.com/tourism/timthumb.php?src=https://www.euttaranchal.com/tourism/photos/nainital-lake-9975281.jpg&w=620&h=440&q=50"
+                         alt="Avatar" style="width:250px;height:150px;"><!--place url-->
+                    <h2 style="font-size: 30px ">Naini Lake</h2><!--place name-->
+                </div>
+                <div class="flip-naini-back"><!--change place name instead of saha-->
+                    <a href="https://en.wikipedia.org/wiki/Nainital_Lake"><h2>Naini Lake</h2></a>
+                    <!--place wikipedia url-->
+                    <p style="font-weight: bold; font-size: 20px;"> ✦Nainital, also known as Naini Lake, is a natural
+                        freshwater body,
+                        situated amidst the township of Nainital in Kumaon.
+                        It is a kidney shaped and has an outfall at the southeastern end.
+                        Nainital, along with other lakes of Kumaon, is integral to tourism and recreation in Kumaon
+                    </p><!--place description-->
+                </div>
+            </div>
+        </div>
+        <div class="flip-mall"><!--change place name instead of falls-->
+            <div class="flip-mall-inner"><!--change place name instead of falls-->
+                <div class="flip-mall-front"><!--change place name instead of falls-->
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSqkD7Yk4mWq8gOfHMvnAE7MbtdnbPAGUv9A&usqp=CAUg"
+                         alt="Avatar" style="width:250px;height:150px;"><!--place img url-->
+                    <h2 style="font-size: 30px ">The Mall Road</h2><!--place name-->
+
+                </div>
+                <div class="flip-mall-back"><!--change place name instead of falls-->
+                    <a href="https://www.euttaranchal.com/tourism/the-mall-nainital.php"><h2>Mall Road</h2></a>
+                    <!--place wikipedia url-->
+                    <p style="font-weight: bold; font-size: 20px;">✦ The Mall is a most popular name in Nainital city.
+                        A busiest road in day time, The Mall runs side by side of the Nainital Lake.
+                        Britishers constructed The Mall Road which passes through the centre of Nainital and connects
+                        two main ends of Nainital city,
+                    </p><!--place description-->
+                </div>
+            </div>
+        </div>
+        <div class="flip-rope"><!--change place name instead of tap-->
+            <div class="flip-rope-inner"><!--change place name instead of tap-->
+                <div class="flip-rope-front"><!--change place name instead of tap-->
+                    <img src="data:image/jpeg;base64,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"
+                         alt="Avatar" style="width:250px;height:150px;"><!--place img url-->
+                    <h2 style="font-size: 30px ">Nainital Ropeway </h2><!--place name-->
+                </div>
+                <div class="flip-rope-back"><!--change place name instead of tap-->
+                    <a href="https://nainitaltourism.org.in/aerial-ropeway-nainital"><h2>Nainital Ropeway</h2></a>
+                    <!--place wikipedia url-->
+                    <p style="font-weight: bold; font-size: 20px;"> ✦ The Aerial Ropeway in Nainital is one of the
+                        biggest tourist attractions.
+                        With hundreds of visitors flying in each day, aerial ropeway carries people
+                        from Mallital to the Snow View Point, one of the popular places to visit in Nainital.
+                    </p><!--place description-->
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <center style="padding: 270px 10px 40px; font-size:30px; letter-spacing:6px; text-decoration: none;"><h2
+            class="head1">Famous Handicrafts</h2></center>
+
+
+    <section>
+        <div class="flip-can"><!--change craft name instead of aip-->
+            <div class="flip-can-inner"><!--change craft name instead of aip-->
+                <div class="flip-can-front"><!--change place name instead of aip-->
+                    <img src="https://cdn.s3waas.gov.in/s36faa8040da20ef399b63a72d0e4ab575/uploads/2018/02/2018022742-300x155.jpg"
+                         alt="Avatar" style="width:250px;height:150px;"><!--craft img url-->
+                    <h2 style="font-size: 30px ">Candles</h2><!--craft name-->
+
+                </div>
+                <div class="flip-can-back"><!--change craft name instead of aip-->
+                    <a href="https://nainital.nic.in/handicraft/"><h2>Candles</h2></a><!--craft wikipedia url-->
+                    <p style="font-weight: bold; font-size: 20px;">✦ One can buy all this and more from authentic shops
+                        in
+                        Bara Bazaar, The Mall Road, Bhotia Bazaar and Mallital.
+
+                    </p><!--craft description-->
+                </div>
+            </div>
+        </div>
+        <div class="flip-woollen"><!--change craft name instead of wool-->
+            <div class="flip-woollen-inner"><!--change craft name instead of wool-->
+                <div class="flip-woollen-front"><!--change craft name instead of wool-->
+                    <img src="https://assets.traveltriangle.com/blog/wp-content/uploads/2018/03/Woollen-garments.jpg"
+                         alt="Avatar" style="width:250px;height:150px;"><!--craft img url-->
+                    <h2 style="font-size: 30px ">Woolen Materials</h2><!--craft name-->
+                </div>
+                <div class="flip-woollen-back"><!--change craft name instead of wool-->
+                    <a href="https://nainital.nic.in/handicraft/"><h2>Woolen Materials</h2></a>
+                    <!--craft wikipedia url-->
+                    <p style="font-weight: bold; font-size: 20px;">✦The hill station has many popular specialties for
+                        shopping ranging from woolens to the brass items.
+                        Apart from the ever bustling mall road there are plenty of smaller bazaars to explore and
+                        bargain.<br>
+                    </p><!--craft description-->
+                </div>
+            </div>
+        </div>
+        <div class="flip-aipan"><!--change craft name instead of wood-->
+            <div class="flip-aipan-inner"><!--change craft name instead of wood-->
+                <div class="flip-aipan-front"><!--change craft name instead of wood-->
+                    <img src="data:image/jpeg;base64,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"
+                         alt="Avatar" style="width:250px;height:150px;"><!--craft img url-->
+                    <h2 style="font-size: 30px ">Aipan Bags</h2><!--craft name-->
+                </div>
+                <div class="flip-aipan-back"><!--change craft name instead of wood-->
+                    <a href="http://www.uttarakhandcrafts.com/designers.php"><h2>Aipan Crafts</h2></a>
+                    <!--craft wikipedia url-->
+                    <p style="font-weight: bold; font-size: 20px;">✦In Nainital, people have been making Rugs, Carpets,
+                        bags, front decors made of aipan art
+                        <br> using their 3d engraving technique.
+                    </p><!--craft description-->
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer>
+        <button onclick="topFunction()" id="scrollToTopBtn" title="Go to top">Top☝</button>
+    </footer>
+    </div>
+
+
+</head>
+<body>
+</body>
+</html>
+
+{%endblock%}

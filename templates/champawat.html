@@ -1,0 +1,980 @@
+{%extends "header.html"%}
+{% block content %}
+
+<style>
+
+    html, body {
+  width: 100%;
+  height:100%;
+}
+* {box-sizing:border-box;
+   border-radius:30px;}
+
+
+
+html, body {
+  width: 100%;
+  height:100%;
+}
+
+body {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 10000% 10000%;
+    animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+#scrollToTopBtn {
+  background-color: black;
+  float:right;
+  border: none;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 48px;
+  width: 48px;
+}
+#scrollToTopBtn:hover {
+  background-color: #660000;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+.head{
+font-size: 100px;
+text-align: center;
+background-image: linear-gradient(to left, violet, indigo,  blue,black, yellow, orange, red);
+-webkit-background-clip: text;
+-moz-background-clip: text;
+background-clip: text;
+color: transparent;
+letter-spacing:6px;
+}
+.head1{
+background-image: linear-gradient(to right, violet, indigo,  blue,black, yellow, orange, red);
+-webkit-background-clip: text;
+-moz-background-clip: text;
+background-clip: text;
+color: transparent;
+}
+
+.slideshow-container {
+  max-width: auto;
+  position: relative;
+  margin: auto;
+}
+
+
+.mySlides {
+  display: none;
+}
+
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+.flip-soy {          /*change name instead of cane */
+                     /* Note : changed name should be same as the name given in HTML*/
+  float:left;
+  width:33%;
+  padding:2px;
+  background-color: transparent;
+  height: 200px;
+  border-radius:20%;
+  perspective: 1000px;
+}
+
+.flip-soy-inner {    /*change name instead of cane */
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-soy:hover .flip-soy-inner {    /*change name instead of cane */
+  transform: rotateX(180deg);
+}
+
+.flip-soy-front, .flip-soy-back {    /*change name instead of cane */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.flip-soy-back {    /*change name instead of cane */
+  transform: rotateX(180deg);
+}
+
+
+.flip-go {    /*change name instead of paddy */
+  float:left;
+  width:33%;
+  padding:2px;
+  background-color: transparent;
+  height: 200px;
+  border-radius:20%;
+  perspective: 1000px;
+}
+
+.flip-go-inner {     /*change name instead of paddy */
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-go:hover .flip-go-inner {     /*change name instead of paddy */
+  transform: rotateX(180deg);
+}
+
+.flip-go-front, .flip-go-back {     /*change name instead of paddy */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.flip-go-back {     /*change name instead of paddy */
+  transform: rotateX(180deg);
+}
+
+.flip-Plum {     /*change name instead of maize */
+  float:left;
+  width:33%;
+  padding:2px;
+  background-color: transparent;
+  height: 200px;
+  border-radius:20%;
+  perspective: 1000px;
+}
+
+.flip-Plum-inner {    /*change name instead of maize */
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-Plum:hover .flip-Plum-inner {    /*change name instead of maize */
+  transform: rotateX(180deg);
+}
+
+.flip-Plum-front, .flip-Plum-back {    /*change name instead of maize */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.flip-Plum-back {    /*change name instead of maize */
+  transform: rotateX(180deg);
+}
+
+.flip-dal {    /*change name instead of tikki */
+  float:left;
+  width:33%;
+  padding:2px;
+  background-color: transparent;
+  height: 200px;
+  border-radius:20%;
+  perspective: 1000px;
+}
+.flip-dal-inner {    /*change name instead of tikki */
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+
+.flip-dal:hover .flip-dal-inner {    /*change name instead of tikki */
+  transform: rotateY(180deg);
+}
+
+
+.flip-dal-front, .flip-dal-back {   /*change name instead of tikki */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+
+.flip-dal-back {    /*change name instead of tikki */
+
+  transform: rotateY(180deg);
+}
+
+
+.flip-sag {   /*change name instead of pakora */
+  float:left;
+  padding:2px;
+  background-color: transparent;
+  width: 33.33%;
+  height: 200px;
+  perspective: 1000px;
+}
+
+
+.flip-sag-inner {    /*change name instead of pakora */
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+
+.flip-sag:hover .flip-sag-inner {    /*change name instead of pakora */
+  transform: rotateY(180deg);
+}
+
+
+.flip-sag-front, .flip-sag-back {    /*change name instead of pakora */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+
+.flip-sag-back {             /*change name instead of pakora */
+
+  transform: rotateY(180deg);
+}
+.flip-soo {    /*change name instead of momos */
+  float:left;
+  width:33.33%;
+  padding:2px;
+  background-color: transparent;
+  height: 200px;
+  border-radius:30%;
+  perspective: 1000px;
+}
+
+
+.flip-soo-inner {   /*change name instead of momos */
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+
+.flip-soo:hover .flip-soo-inner {   /*change name instead of momos */
+  transform: rotateY(180deg);
+}
+
+
+.flip-soo-front, .flip-soo-back {   /*change name instead of momos */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+
+.flip-soo-back {    /*change name instead of momos */
+
+  transform: rotateY(180deg);
+}
+.flip-dev {   /*change name instead of saha */
+  float:left;
+  width:33.33%;
+  padding:2px;
+  background-color: transparent;
+  height: 200px;
+  border-radius:30%;
+  perspective: 1000px;
+}
+
+
+.flip-dev-inner {   /*change name instead of saha */
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+
+.flip-dev:hover .flip-dev-inner {   /*change name instead of saha */
+  transform: rotateY(180deg);
+}
+
+
+.flip-dev-front, .flip-dev-back {   /*change name instead of saha */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+
+.flip-dev-back {   /*change name instead of saha */
+
+  transform: rotateY(180deg);
+}
+.flip-nag {   /*change name instead of falls */
+  float:left;
+  width:33.33%;
+  padding:2px;
+  background-color: transparent;
+  height: 200px;
+  border-radius:30%;
+  perspective: 1000px;
+
+}
+
+
+.flip-nag-inner {   /*change name instead of falls */
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+
+.flip-nag:hover .flip-nag-inner {   /*change name instead of falls */
+  transform: rotateY(180deg);
+}
+
+
+.flip-nag-front, .flip-nag-back {   /*change name instead of falls */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+
+.flip-nag-back {   /*change name instead of falls */
+
+  transform: rotateY(180deg);
+}
+.flip-abb {
+  float:left;
+  width:33.33%;
+  padding:2px;
+  background-color: transparent;
+  height: 200px;
+  border-radius:30%;
+  perspective: 1000px;
+}
+
+
+.flip-abb-inner {    /*change name instead of tap */
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+
+.flip-abb:hover .flip-abb-inner {   /*change name instead of tap */
+  transform: rotateY(180deg);
+}
+
+
+.flip-abb-front, .flip-abb-back {   /*change name instead of tap */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+
+.flip-abb-back {    /*change name instead of tap */
+
+  transform: rotateY(180deg);
+}
+.flip-cu {   /*change name instead of aip */
+  float:left;
+  width:33.33%;
+  padding:2px;
+  background-color: transparent;
+  height: 200px;
+  border-radius:30%;
+  perspective: 1000px;
+
+}
+
+
+.flip-cu-inner {   /*change name instead of aip */
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+
+.flip-cu:hover .flip-cu-inner {    /*change name instead of aip */
+  transform: rotateY(180deg);
+}
+
+
+.flip-cu-front, .flip-cu-back {    /*change name instead of aip */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+
+.flip-cu-back {    /*change name instead of aip */
+
+  transform: rotateY(180deg);
+}
+.flip-pal {    /*change name instead of wool */
+  float:left;
+  width:33.33%;
+  padding:2px;
+  background-color: transparent;
+  height: 200px;
+  border-radius:30%;
+  perspective: 1000px;
+
+}
+
+
+.flip-pal-inner {    /*change name instead of wool */
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+
+.flip-pal:hover .flip-pal-inner {    /*change name instead of wool */
+  transform: rotateY(180deg);
+}
+
+
+.flip-pal-front, .flip-pal-back {    /*change name instead of wool */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+
+.flip-pal-back {    /*change name instead of wool */
+
+  transform: rotateY(180deg);
+}
+.flip-sil{    /*change name instead of wood */
+  float:left;
+  width:33.33%;
+  padding:2px;
+  background-color: transparent;
+  height: 200px;
+  border-radius:30%;
+  perspective: 1000px;
+}
+
+
+.flip-sil-inner {    /*change name instead of wood */
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+
+.flip-sil:hover .flip-sil-inner {    /*change name instead of wood */
+  transform: rotateY(180deg);
+}
+
+
+.flip-sil-front, .flip-sil-back {    /*change name instead of wood */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+
+.flip-sil-back {    /*change name instead of wood */
+
+  transform: rotateY(180deg);
+}
+
+
+
+</style>
+
+<script>
+
+    var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+}
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}
+  slides[slideIndex-1].style.display = "block";
+  setTimeout(showSlides, 2000);
+}
+mybutton = document.getElementById("scrollToTopBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
+
+
+</script>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Champawat</title><!--web page title-->
+    <link rel="icon" type="image/x-icon"
+          href="https://media.istockphoto.com/photos/flamy-symbol-picture-id178592315?k=20&m=178592315&s=612x612&w=0&h=JJkPb9RM09MXwpapEhwkkL97rWgQjOLKFuj_GAbbCRE=">
+    <!--web page icon-->
+    <link rel="stylesheet" href="champ.css">
+    <script src="champ.js"></script>
+
+
+    <div class="slideshow-container">
+        <div class="mySlides fade">
+            <img src="https://uttarakhandtourism.gov.in/sites/default/files/2021-02/03-March_0.jpg">
+            <!--slideshow img URL-->
+        </div>
+
+        <div class="mySlides fade">
+            <img src="https://uttarakhandtourism.gov.in/sites/default/files/2022-01/Home%20page%20Banner_%20trikansh%20sharma.jpg">
+            <!--slideshow img URL-->
+        </div>
+
+        <div class="mySlides fade">
+            <img src="https://uttarakhandtourism.gov.in/sites/default/files/2021-11/Banner_Stargazing1.jpeg">
+            <!--slideshow img URL-->
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+    <br>
+
+
+    <div style="text-align:center">
+        <span class="dot" onmouseover="currentSlide(1)"></span>
+        <span class="dot" onmouseover="currentSlide(2)"></span>
+        <span class="dot" onmouseover="currentSlide(3)"></span>
+    </div>
+
+
+    <h1 class="head">CHAMPAWAT</h1><!--district name on top of page-->
+
+    <!--district name on top of page-->
+    <center><h2 style="letter-spacing:2px; text-decoration: line-through;" class="head1"> WEATHER <label
+            id="weather-scroll"> </label></h2></center>
+    <center><h2><span style="font-weight:660">date&time:</span> {{d_t}}</h2></center>
+
+    <center><h2><span style="font-weight:660">celsius:</span> {{celsius}} C </h2></center>
+
+    <center><h2><span style="font-weight:660">fahrenheit:</span> {{fahrenheit}} F </h2></center>
+
+    <center><h2><span style="font-weight:660">condition:</span> {{condition}} <img src="{{icon}}" ALIGN=”center”
+                                                                                   alt="Los Angeles"
+                                                                                   class="icon"></h2></center>
+
+
+    <center style="padding: 270px 10px 40px; font-size:30px;  letter-spacing:6px;"><h2 class="head1">Crops</h2></center>
+    <div>
+        <div class="flip-soy"><!--change food name instead of cane-->
+            <div class="flip-soy-inner"><!--change food name instead of cane-->
+                <div class="flip-soy-front"><!--change food name instead of cane-->
+                    <img src="https://www.gardeningknowhow.com/wp-content/uploads/2020/11/soybean-in-pod-.jpg"
+                         alt="Avatar" style="width:250px;height:150px;"><!--crop image url-->
+                    <h2 style="font-size: 30px ">Soybean</h2><!--crop name-->
+
+                </div>
+                <div class="flip-soy-back"><!--change crop name instead of cane-->
+                    <p style="font-weight: bold; font-size: 20px;">🥖Soybean ---＞ Summer crop
+                        <br>🥖suitable soil --＞ Loamy soil<br>🥖Temperature --＞ 20°C to 30°C</p><!--crop description-->
+                    <a href="https://www.mississippi-crops.com/2020/06/19/flood-irrigated-soybean-yield-considerations/">
+                        <h2>irrigation : flood irrigation</h2></a><!--wikipedia of crop-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <div class="flip-go"><!--change food name instead of cane-->
+            <div class="flip-go-inner"><!--change food name instead of cane-->
+                <div class="flip-go-front"><!--change food name instead of cane-->
+                    <img src="https://wallpapercave.com/wp/wp2756457.jpg" alt="Avatar"
+                         style="width:250px;height:150px;"><!--crop image url-->
+                    <h2 style="font-size: 30px ">Mango</h2><!--crop name-->
+
+                </div>
+                <div class="flip-go-back"><!--change crop name instead of cane-->
+                    <p style="font-weight: bold; font-size: 20px;">🥭Mango ---＞ Summer crop
+                        <br>🥭suitable soil --＞Lateritic soil<br>🥭Temperature --＞ 23.90°C and 26.70°C</p>
+                    <!--crop description-->
+                    <a href="https://www.dawn.com/news/536325/mango-production-and-drip-irrigation"><h2>irrigation :
+                        drip irrigation</h2></a><!--wikipedia of crop-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <div class="flip-Plum"><!--change food name instead of cane-->
+            <div class="flip-Plum-inner"><!--change food name instead of cane-->
+                <div class="flip-Plum-front"><!--change food name instead of cane-->
+                    <img src="https://www.wallpaperup.com/uploads/wallpapers/2015/10/19/820832/51bc18d22b60af82ad21b8bdd517175f.jpg"
+                         alt="Avatar" style="width:250px;height:150px;"><!--crop image url-->
+                    <h2 style="font-size: 30px ">Plum</h2><!--crop name-->
+
+                </div>
+                <div class="flip-Plum-back"><!--change crop name instead of cane-->
+                    <p style="font-weight: bold; font-size: 20px;">🍒Plum ---＞ Summer crop
+                        <br>🍒suitable soil --＞lateritic soil<br>🍒Temperature --＞47°C in summers.</p>
+                    <!--crop description-->
+                    <a href="https://en.wikipedia.org/wiki/Deficit_irrigation"><h2>irrigation : deﬁcit irrigation</h2>
+                    </a><!--wikipedia of crop-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <center style="padding: 270px 10px 40px; font-size:30px;  letter-spacing:6px;"><h2 class="head1">Flavours of
+        Land</h2></center>
+
+
+    <section>
+        <div class="flip-dal"><!--change food name instead of tikki-->
+            <div class="flip-dal-inner"><!--change food name instead of tikki-->
+                <div class="flip-dal-front"><!--change food name instead of tikki-->
+                    <img src="https://www.uttarakhandfoods.com/wp-content/uploads/2013/06/Gahat-kulath-ki-Daal-5-1.jpg"
+                         alt="Avatar" style="width:250px;height:150px;"><!--food image url-->
+                    <h2 style="font-size: 30px ">Gahat Dal</h2><!--food name-->
+
+                </div>
+                <div class="flip-dal-back"><!--change food name instead of tikki-->
+                    <a href="https://www.uttarakhandi.com/gahat-dal-kulthi-dal/"><h2 style="font-size: 30px ">Gahat
+                        Dal</h2></a><!--wikipedia of food-->
+                    <p style="font-weight: bold; font-size: 20px;">✦The effect of Gahat is hot,<br> that is why the
+                        people of Uttarakhand<br> prefer Gahat Dal Soup in winters.<br>
+                        ✦It is a good source of iron.</p><!--food description-->
+                </div>
+            </div>
+        </div>
+
+        <div class="flip-sag"><!--change food name instead of pakora-->
+            <div class="flip-sag-inner"><!--change food name instead of pakora-->
+                <div class="flip-sag-front"><!--change food name instead of pakora-->
+                    <img src="https://www.uttarakhandi.com/wp-content/uploads/sisunak-saag-uttarakhand-755x445.jpg"
+                         alt="Avatar" style="width:250px;height:150px;"><!--food image-->
+                    <h2 style="font-size: 30px ">sisunag saag</h2><!--food name-->
+                </div>
+                <div class="flip-sag-back"><!--change food name instead of pakora-->
+                    <a href="https://www.uttarakhandi.com/sisunag-kandali-saag/"><h2>sisunag saag</h2></a>
+                    <!--food wikipedia-->
+                    <p style="font-weight: bold; font-size: 20px;">✦sisunag sag is also called as <br>Kandali saag,which
+                        is one of the<br>
+                        finger licking dishes in CHAMPAWAT</p><!--food description-->
+                </div>
+            </div>
+        </div>
+        <div class="flip-soo"><!--change food name instead of momos-->
+            <div class="flip-soo-inner"><!--change food name instead of momos-->
+                <div class="flip-soo-front"><!--change food name instead of momos-->
+                    <img src="https://www.tourmyindia.com/states/uttarakhand/images/chainsoo.jpg" alt="Avatar"
+                         style="width:250px;height:150px;"><!--food image-->
+                    <h2 style="font-size: 30px ">Chainsoo</h2><!--food name-->
+
+                </div>
+                <div class="flip-soo-back"><!--change food name instead of momos-->
+                    <a href="https://www.uttarakhandi.com/chainsoo/"><h2 style="font-size: 30px">Chainsoo</h2></a>
+                    <!--food wikipedia-->
+                    <p style="font-weight: bold; font-size: 20px;">✦Chainsoo is a delightful pahari <br>recipe which is
+                        made by using kali dal.
+                        <br>✦This dal is also high in proteins.</p><!--food description-->
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <center style="padding: 270px 10px 40px; font-size:30px; letter-spacing:6px;"><h2 class="head1">Famous Places of
+        Land</h2></center>
+
+
+    <section>
+        <div class="flip-dev"><!--change place name instead of saha-->
+            <div class="flip-dev-inner"><!--change place name instead of saha-->
+                <div class="flip-dev-front"><!--change place name instead of saha-->
+                    <img src="https://www.chardhamtours.in/gallery/cityImage/1463114212_baleshwar-temple.jpg"
+                         alt="Avatar" style="width:250px;height:150px;"><!--place url-->
+                    <h2 style="font-size: 30px ">Khranteshwar <br>Mahadev Temple</h2><!--place name-->
+                </div>
+                <div class="flip-dev-back"><!--change place name instead of saha-->
+                    <a href="https://www.nativeplanet.com/champawat/attractions/kranteshwar-mahadev-temple/#overview">
+                        <h2>Khranteshwar <br>Mahadev<br>Temple</h2></a><!--place wikipedia url-->
+                    <p style="font-weight: bold; font-size: 20px;"> ✦Kranteshwar Mahadev Temple is a holy shrine <br>of
+                        Lord Shiva situated on a top of a
+                        <br>lofty hill on the east of Champawat town.</p><!--place description-->
+                </div>
+            </div>
+        </div>
+        <div class="flip-nag"><!--change place name instead of falls-->
+            <div class="flip-nag-inner"><!--change place name instead of falls-->
+                <div class="flip-nag-front"><!--change place name instead of falls-->
+                    <img src="https://www.tripnight.com/public/thumbs/monuments/865/GWLh4e7QC5wc_468_738.jpg"
+                         alt="Avatar" style="width:250px;height:150px;"><!--place img url-->
+                    <h2 style="font-size: 30px ">Nagnath Temple</h2><!--place name-->
+
+                </div>
+                <div class="flip-nag-back"><!--change place name instead of falls-->
+                    <a href="https://www.chardhamtours.in/uttarakhand/champawat/nagnath-temple_1871.html"><h2>Nagnath
+                        Temple</h2></a><!--place wikipedia url-->
+                    <p style="font-weight: bold; font-size: 20px;">✦Nagnath Temple is an ancient popular<br> temple
+                        situated in champawat.
+                        <br>✦This temple is dedicated to lord shiva.</p><!--place description-->
+                </div>
+            </div>
+        </div>
+        <div class="flip-abb"><!--change place name instead of tap-->
+            <div class="flip-abb-inner"><!--change place name instead of tap-->
+                <div class="flip-abb-front"><!--change place name instead of tap-->
+                    <img src="https://www.euttaranchal.com/tourism/timthumb.php?src=https://www.euttaranchal.com/tourism/photos/abbott-mount-church-9654017.jpg&w=750&h=510&q=50"
+                         alt="Avatar" style="width:250px;height:150px;"><!--place img url-->
+                    <h2 style="font-size: 30px ">Abbot Mount<br> church </h2><!--place name-->
+                </div>
+                <div class="flip-abb-back"><!--change place name instead of tap-->
+                    <a href="https://www.thestatesman.com/travel/abbott-mount-social-media-bringing-footfalls-haunted-mansion-british-era-1502564709.html">
+                        <h2>Abbot Mount<br> church </h2></a><!--place wikipedia url-->
+                    <p style="font-weight: bold; font-size: 20px;"> ✦A sports field on the top of the village<br>
+                        provides panoramic view of the Himalayas.<br>
+                        ✦But, among all the Abbott Mount<br> is known for the mansion.</p><!--place description-->
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <center style="padding: 270px 10px 40px; font-size:30px; letter-spacing:6px; text-decoration: none;"><h2
+            class="head1">Famous Handicrafts</h2></center>
+
+
+    <section>
+        <div class="flip-cu"><!--change craft name instead of aip-->
+            <div class="flip-cu-inner"><!--change craft name instead of aip-->
+                <div class="flip-cu-front"><!--change place name instead of aip-->
+                    <img src="https://www.swadesi.com/news/wp-content/uploads/2019/06/copper-craft-set_905.jpg"
+                         alt="Avatar" style="width:250px;height:150px;"><!--craft img url-->
+                    <h2 style="font-size: 30px ">copperware craft</h2><!--craft name-->
+
+                </div>
+                <div class="flip-cu-back"><!--change craft name instead of aip-->
+                    <a href="http://www.uttarakhandcrafts.com/project_single.php?proid=4"><h2>copperware craft</h2></a>
+                    <!--craft wikipedia url-->
+                    <p style="font-weight: bold; font-size: 20px;">✦The origins of Tamta copperware craft <br>can be
+                        traced back to 16th century AD,
+                        <br> when the Chandravanshi clan of the <br>Rajasthan region migrated to the Champawat.</p>
+                    <!--craft description-->
+                </div>
+            </div>
+        </div>
+        <div class="flip-pal"><!--change craft name instead of wool-->
+            <div class="flip-pal-inner"><!--change craft name instead of wool-->
+                <div class="flip-pal-front"><!--change craft name instead of wool-->
+                    <img src="https://5.imimg.com/data5/YH/XE/TG/SELLER-21088707/1a-12-by-8-390-2-250x250.jpg"
+                         alt="Avatar" style="width:250px;height:150px;"><!--craft img url-->
+                    <h2 style="font-size: 30px ">Palak craft</h2><!--craft name-->
+                </div>
+                <div class="flip-pal-back"><!--change craft name instead of wool-->
+                    <a href="https://www.indiamart.com/palak-handicraftsahmedabad/"><h2>Palak craft</h2></a>
+                    <!--craft wikipedia url-->
+                    <p style="font-weight: bold; font-size: 20px;">✦Pancheshwar is a area in champawat <br>which is
+                        famous for its Palak handicrafts.</p><!--craft description-->
+                </div>
+            </div>
+        </div>
+        <div class="flip-sil"><!--change craft name instead of wood-->
+            <div class="flip-sil-inner"><!--change craft name instead of wood-->
+                <div class="flip-sil-front"><!--change craft name instead of wood-->
+                    <img src="http://www.webindia123.com/fashionfabrics/images/saree.jpg" alt="Avatar"
+                         style="width:250px;height:150px;"><!--craft img url-->
+                    <h2 style="font-size: 30px ">Silk weaving</h2><!--craft name-->
+                </div>
+                <div class="flip-sil-back"><!--change craft name instead of wood-->
+                    <a href="https://asiainch.org/craft/cotton-wool-and-silk-weaving-of-uttarakhand/"><h2>Silk
+                        weaving</h2></a><!--craft wikipedia url-->
+                    <p style="font-weight: bold; font-size: 20px;">✦Tranional weavers producing <br>silk handlooms<br>
+                        are to be found in many villages <br>and localities on district Champawat.
+                    </p><!--craft description-->
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer>
+        <button onclick="topFunction()" id="scrollToTopBtn" title="Go to top">Top☝</button>
+    </footer>
+    </div>
+
+
+</head>
+<body>
+</body>
+</html>
+
+
+{%endblock%}

@@ -1,0 +1,932 @@
+{%extends "header.html"%}
+{% block content %}
+
+
+<style>
+    html, body {
+  width: 100%;
+  height:100%;
+}
+* {box-sizing:border-box;
+   border-radius:30px;}
+
+
+
+html, body {
+  width: 100%;
+  height:100%;
+}
+
+body {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 10000% 10000%;
+    animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+#scrollToTopBtn {
+  background-color: black;
+  float:right;
+  border: none;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 48px;
+  width: 48px;
+}
+#scrollToTopBtn:hover {
+  background-color: #660000;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+.head{
+font-size: 100px;
+text-align: center;
+background-image: linear-gradient(to left, violet, indigo,  blue,black, yellow, orange, red);
+-webkit-background-clip: text;
+-moz-background-clip: text;
+background-clip: text;
+color: transparent;
+letter-spacing:6px;
+}
+.head1{
+background-image: linear-gradient(to right, violet, indigo,  blue,black, yellow, orange, red);
+-webkit-background-clip: text;
+-moz-background-clip: text;
+background-clip: text;
+color: transparent;
+}
+
+.slideshow-container {
+  max-width: auto;
+  position: relative;
+  margin: auto;
+}
+
+
+.mySlides {
+  display: none;
+}
+
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+.flip-rad {          /*change name instead of cane */
+                     /* Note : changed name should be same as the name given in HTML*/
+  float:left;
+  width:33%;
+  padding:2px;
+  background-color: transparent;
+  height: 200px;
+  border-radius:20%;
+  perspective: 1000px;
+}
+
+.flip-rad-inner {    /*change name instead of cane */
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-rad:hover .flip-rad-inner {    /*change name instead of cane */
+  transform: rotateX(180deg);
+}
+
+.flip-rad-front, .flip-rad-back {    /*change name instead of cane */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.flip-rad-back {    /*change name instead of cane */
+  transform: rotateX(180deg);
+}
+
+
+.flip-paddy {    /*change name instead of paddy */
+  float:left;
+  width:33%;
+  padding:2px;
+  background-color: transparent;
+  height: 200px;
+  border-radius:20%;
+  perspective: 1000px;
+}
+
+.flip-paddy-inner {     /*change name instead of paddy */
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-paddy:hover .flip-paddy-inner {     /*change name instead of paddy */
+  transform: rotateX(180deg);
+}
+
+.flip-paddy-front, .flip-paddy-back {     /*change name instead of paddy */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.flip-paddy-back {     /*change name instead of paddy */
+  transform: rotateX(180deg);
+}
+
+.flip-cab {     /*change name instead of maize */
+  float:left;
+  width:33%;
+  padding:2px;
+  background-color: transparent;
+  height: 200px;
+  border-radius:20%;
+  perspective: 1000px;
+}
+
+.flip-cab-inner {    /*change name instead of maize */
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-cab:hover .flip-cab-inner {    /*change name instead of maize */
+  transform: rotateX(180deg);
+}
+
+.flip-cab-front, .flip-cab-back {    /*change name instead of maize */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.flip-cab-back {    /*change name instead of maize */
+  transform: rotateX(180deg);
+}
+
+.flip-jha {    /*change name instead of tikki */
+  float:left;
+  width:33%;
+  padding:2px;
+  background-color: transparent;
+  height: 200px;
+  border-radius:20%;
+  perspective: 1000px;
+}
+.flip-jha-inner {    /*change name instead of tikki */
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+
+.flip-jha:hover .flip-jha-inner {    /*change name instead of tikki */
+  transform: rotateY(180deg);
+}
+
+
+.flip-jha-front, .flip-jha-back {   /*change name instead of tikki */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+
+.flip-jha-back {    /*change name instead of tikki */
+
+  transform: rotateY(180deg);
+}
+
+
+.flip-dub {   /*change name instead of pakora */
+  float:left;
+  padding:2px;
+  background-color: transparent;
+  width: 33.33%;
+  height: 200px;
+  perspective: 1000px;
+}
+
+
+.flip-dub-inner {    /*change name instead of pakora */
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+
+.flip-dub:hover .flip-dub-inner {    /*change name instead of pakora */
+  transform: rotateY(180deg);
+}
+
+
+.flip-dub-front, .flip-dub-back {    /*change name instead of pakora */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+
+.flip-dub-back {             /*change name instead of pakora */
+
+  transform: rotateY(180deg);
+}
+.flip-Roat {    /*change name instead of momos */
+  float:left;
+  width:33.33%;
+  padding:2px;
+  background-color: transparent;
+  height: 200px;
+  border-radius:30%;
+  perspective: 1000px;
+}
+
+
+.flip-Roat-inner {   /*change name instead of momos */
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+
+.flip-Roat:hover .flip-Roat-inner {   /*change name instead of momos */
+  transform: rotateY(180deg);
+}
+
+
+.flip-Roat-front, .flip-Roat-back {   /*change name instead of momos */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+
+.flip-Roat-back {    /*change name instead of momos */
+
+  transform: rotateY(180deg);
+}
+.flip-pan {   /*change name instead of saha */
+  float:left;
+  width:33.33%;
+  padding:2px;
+  background-color: transparent;
+  height: 200px;
+  border-radius:30%;
+  perspective: 1000px;
+}
+
+
+.flip-pan-inner {   /*change name instead of saha */
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+
+.flip-pan:hover .flip-pan-inner {   /*change name instead of saha */
+  transform: rotateY(180deg);
+}
+
+
+.flip-pan-front, .flip-pan-back {   /*change name instead of saha */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+
+.flip-pan-back {   /*change name instead of saha */
+
+  transform: rotateY(180deg);
+}
+.flip-kot {   /*change name instead of falls */
+  float:left;
+  width:33.33%;
+  padding:2px;
+  background-color: transparent;
+  height: 200px;
+  border-radius:30%;
+  perspective: 1000px;
+
+}
+
+
+.flip-kot-inner {   /*change name instead of falls */
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+
+.flip-kot:hover .flip-kot-inner {   /*change name instead of falls */
+  transform: rotateY(180deg);
+}
+
+
+.flip-kot-front, .flip-kot-back {   /*change name instead of falls */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+
+.flip-kot-back {   /*change name instead of falls */
+
+  transform: rotateY(180deg);
+}
+.flip-dev {
+  float:left;
+  width:33.33%;
+  padding:2px;
+  background-color: transparent;
+  height: 200px;
+  border-radius:30%;
+  perspective: 1000px;
+}
+
+
+.flip-dev-inner {    /*change name instead of tap */
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+
+.flip-dev:hover .flip-dev-inner {   /*change name instead of tap */
+  transform: rotateY(180deg);
+}
+
+
+.flip-dev-front, .flip-dev-back {   /*change name instead of tap */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+
+.flip-dev-back {    /*change name instead of tap */
+
+  transform: rotateY(180deg);
+}
+.flip-bea {   /*change name instead of aip */
+  float:left;
+  width:33.33%;
+  padding:2px;
+  background-color: transparent;
+  height: 200px;
+  border-radius:30%;
+  perspective: 1000px;
+
+}
+
+
+.flip-bea-inner {   /*change name instead of aip */
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+
+.flip-bea:hover .flip-bea-inner {    /*change name instead of aip */
+  transform: rotateY(180deg);
+}
+
+
+.flip-bea-front, .flip-bea-back {    /*change name instead of aip */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+
+.flip-bea-back {    /*change name instead of aip */
+
+  transform: rotateY(180deg);
+}
+.flip-bam {    /*change name instead of wool */
+  float:left;
+  width:33.33%;
+  padding:2px;
+  background-color: transparent;
+  height: 200px;
+  border-radius:30%;
+  perspective: 1000px;
+
+}
+
+
+.flip-bam-inner {    /*change name instead of wool */
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+
+.flip-bam:hover .flip-bam-inner {    /*change name instead of wool */
+  transform: rotateY(180deg);
+}
+
+
+.flip-bam-front, .flip-bam-back {    /*change name instead of wool */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+
+.flip-bam-back {    /*change name instead of wool */
+
+  transform: rotateY(180deg);
+}
+.flip-wood {    /*change name instead of wood */
+  float:left;
+  width:33.33%;
+  padding:2px;
+  background-color: transparent;
+  height: 200px;
+  border-radius:30%;
+  perspective: 1000px;
+}
+
+
+.flip-wood-inner {    /*change name instead of wood */
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+
+.flip-wood:hover .flip-wood-inner {    /*change name instead of wood */
+  transform: rotateY(180deg);
+}
+
+
+.flip-wood-front, .flip-wood-back {    /*change name instead of wood */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+
+.flip-wood-back {    /*change name instead of wood */
+
+  transform: rotateY(180deg);
+}
+</style>
+
+<script>
+
+    var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+}
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}
+  slides[slideIndex-1].style.display = "block";
+  setTimeout(showSlides, 3000);
+}
+mybutton = document.getElementById("scrollToTopBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
+</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Rudraprayag</title><!--web page title-->
+    <link rel="icon" type="image/x-icon" href="https://static8.depositphotos.com/1010782/858/i/600/depositphotos_8581757-stock-photo-fire-alphabets-r.jpg"><!--web page icon-->
+    <link rel="stylesheet" href="rudrap.css">
+    <script src="rudrap.js"></script>
+
+
+    <div class="slideshow-container">
+      <div class="mySlides fade">
+    <img src="https://uttarakhandtourism.gov.in/sites/default/files/2021-12/XRACottage1.jpg"><!--slideshow img URL-->
+  </div>
+
+  <div class="mySlides fade">
+    <img src="https://uttarakhandtourism.gov.in/sites/default/files/2021-02/03-March_0.jpg"><!--slideshow img URL-->
+  </div>
+
+  <div class="mySlides fade">
+    <img src="https://uttarakhandtourism.gov.in/sites/default/files/2021-02/Binsar%20Wildlife%20Sanctuary_1.jpg" ><!--slideshow img URL-->
+  </div>
+
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+<br>
+
+
+<div style="text-align:center">
+  <span class="dot" onmouseover="currentSlide(1)"></span>
+  <span class="dot" onmouseover="currentSlide(2)"></span>
+  <span class="dot" onmouseover="currentSlide(3)"></span>
+</div>
+
+
+    <h1 class="head">RUDRAPRAYAG</h1><!--district name on top of page-->
+  <center><h2 style="letter-spacing:2px; text-decoration: line-through;" class="head1"> WEATHER <label
+            id="weather-scroll"> </label></h2></center>
+    <center><h2><span style="font-weight:660">date&time:</span> {{d_t}}</h2></center>
+
+    <center><h2><span style="font-weight:660">celsius:</span> {{celsius}} C </h2></center>
+
+    <center><h2><span style="font-weight:660">fahrenheit:</span> {{fahrenheit}} F </h2></center>
+
+    <center><h2><span style="font-weight:660">condition:</span> {{condition}} <img src="{{icon}}" ALIGN=”center”
+                                                                                   alt="Los Angeles"
+                                                                                   class="icon"></h2></center>
+<center style="padding: 100px 10px 40px; font-size:30px;  letter-spacing:6px;"><h2 class="head1">Crops</h2></center>
+<div>
+<div class="flip-rad"><!--change food name instead of cane-->
+  <div class="flip-rad-inner"><!--change food name instead of cane-->
+    <div class="flip-rad-front"><!--change food name instead of cane-->
+        <img src="https://www.agrifarming.in/wp-content/uploads/2015/03/Growing-Radish..jpg" alt="Avatar" style="width:250px;height:150px;"><!--crop image url-->
+        <h2 style="font-size: 30px ">Radish</h2><!--crop name-->
+
+    </div>
+    <div class="flip-rad-back"><!--change crop name instead of cane-->
+        <p style="font-weight: bold; font-size: 20px;">🎋Radish ---＞ Winter crop
+          <br>🎋suitable soil --＞ Sandy soil<br>🎋Temperature --＞ 12°C to 23°C</p><!--crop description-->
+        <a href="https://www.netafimindia.com/crop-knowledge/sugarcane/#:~:text=Netafim's%20Subsurface%20Drip%20Irrigation%20helps,req
+        uired%20quantities%20and%20when%20required.&text=The%20typical%20discharge%20rate%20is,similar%20to%20the%20surface%20irrigation."><h2>irrigation : Drip irrigation</h2></a><!--wikipedia of crop-->
+    </div>
+  </div>
+</div>
+</div>
+
+    <div>
+<div class="flip-paddy"><!--change food name instead of cane-->
+  <div class="flip-paddy-inner"><!--change food name instead of cane-->
+    <div class="flip-paddy-front"><!--change food name instead of cane-->
+        <img src="https://www.agrifarming.in/wp-content/uploads/2018/09/Scope-and-Importance-of-Rice..jpg" alt="Avatar" style="width:250px;height:150px;"><!--crop image url-->
+        <h2 style="font-size: 30px ">Paddy</h2><!--crop name-->
+
+    </div>
+    <div class="flip-paddy-back"><!--change crop name instead of cane-->
+        <p style="font-weight: bold; font-size: 20px;">🌾Paddy ---＞ Summer & Winter crop
+          <br>🌾suitable soil --＞Alluvial soil<br>🌾Temperature --＞ 25°C and 35°C</p><!--crop description-->
+        <a href="https://www.aucom.com/industries/irrigation/rice-field-flood-irrigation"><h2>irrigation : flood irrigation</h2></a><!--wikipedia of crop-->
+    </div>
+  </div>
+</div>
+</div>
+
+    <div>
+<div class="flip-cab"><!--change food name instead of cane-->
+  <div class="flip-cab-inner"><!--change food name instead of cane-->
+    <div class="flip-cab-front"><!--change food name instead of cane-->
+        <img src="data:image/jpeg;base64,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" alt="Avatar" style="width:250px;height:150px;"><!--crop image url-->
+        <h2 style="font-size: 30px ">Cabbage</h2><!--crop name-->
+
+    </div>
+    <div class="flip-cab-back"><!--change crop name instead of cane-->
+        <p style="font-weight: bold; font-size: 20px;">🌽Cabbage ---＞ Summer & winter crop
+          <br>🌽suitable soil --＞loam soil<br>🌽Temperature --＞ 15°C and 21°C</p><!--crop description-->
+        <a href="https://www.gestiriego.com/en/drip-irrigation-in-the-corn-crop/"><h2>irrigation : Drip irrigation</h2></a><!--wikipedia of crop-->
+    </div>
+  </div>
+</div>
+</div>
+
+    <center style="padding: 270px 10px 40px; font-size:30px;  letter-spacing:6px;"><h2 class="head1">Flavours   of   Land</h2></center>
+
+
+<section>
+<div class="flip-jha"><!--change food name instead of tikki-->
+  <div class="flip-jha-inner"><!--change food name instead of tikki-->
+    <div class="flip-jha-front"><!--change food name instead of tikki-->
+        <img src="https://ucarecdn.com/52e83bdd-f3b8-4f25-9298-86f450c2f1b3/-/preview/" alt="Avatar" style="width:250px;height:150px;"><!--food image url-->
+        <h2 style="font-size: 30px "> Jhangore ki Kheer</h2><!--food name-->
+
+    </div>
+    <div class="flip-jha-back"><!--change food name instead of tikki-->
+        <a href="https://recipes.timesofindia.com/recipes/jhangore-ki-kheer/rs61932498.cms"><h2 style="font-size: 30px "> Jhangore ki Kheer</h2></a><!--wikipedia of food-->
+      <p style="font-weight: bold; font-size: 20px;">✦This is an inseparable part of Rudrap cuisine,<br> specially on special occasions and festivals.</p><!--food description-->
+    </div>
+  </div>
+</div>
+
+<div class="flip-dub"><!--change food name instead of pakora-->
+  <div class="flip-dub-inner"><!--change food name instead of pakora-->
+    <div class="flip-dub-front"><!--change food name instead of pakora-->
+        <img src="https://www.tourmyindia.com/blog//wp-content/uploads/2015/08/dubuk.jpg" alt="Avatar" style="width:250px;height:150px;"><!--food image-->
+        <h2 style="font-size: 30px ">Dubuk</h2><!--food name-->
+    </div>
+    <div class="flip-dub-back"><!--change food name instead of pakora-->
+        <a href="https://almora.nic.in/cuisines/#:~:text=Subtle%20in%20taste%20and%20good,iron%20kadhai%20over%20slow%20fire."><h2>Dubuk</h2></a><!--food wikipedia-->
+      <p style="font-weight: bold; font-size: 20px;">✦Dubuk is best served with <br>plain rice, Bhang ki Chutney<br>✦The taste ladies and gentlemen is unbeatable!</p><!--food description-->
+    </div>
+  </div>
+</div>
+     <div class="flip-Roat"><!--change food name instead of momos-->
+  <div class="flip-Roat-inner"><!--change food name instead of momos-->
+    <div class="flip-Roat-front"><!--change food name instead of momos-->
+        <img src="https://ucarecdn.com/8ff9a860-ed20-4a23-82b1-dd35f0c8582d/-/preview/" alt="Avatar" style="width:250px;height:150px;"><!--food image-->
+        <h2 style="font-size: 30px ">Roat</h2><!--food name-->
+
+    </div>
+    <div class="flip-Roat-back"><!--change food name instead of momos-->
+        <a href="https://ribbonstopastas.com/roat-a-sweet-flat-bread-from-uttarkhand/"><h2 style="font-size: 30px">Roat</h2></a><!--food wikipedia-->
+      <p style="font-weight: bold; font-size: 20px;">✦ Roat is a fried thick shallow bread<br> made up of wheat flour <br>mixed with milk and jaggery.</p><!--food description-->
+    </div>
+  </div>
+</div>
+</section>
+
+
+    <center style="padding: 270px 10px 40px; font-size:30px; letter-spacing:6px;"><h2 class="head1">Famous   Places   of   Land</h2></center>
+
+
+<section>
+    <div class="flip-pan"><!--change place name instead of saha-->
+  <div class="flip-pan-inner"><!--change place name instead of saha-->
+    <div class="flip-pan-front"><!--change place name instead of saha-->
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Devprayag_-_Confluence_of_Bhagirathi_and_Alaknanda.JPG" alt="Avatar" style="width:250px;height:150px;"><!--place url-->
+        <h2 style="font-size: 30px ">Panch Prayag</h2><!--place name-->
+    </div>
+    <div class="flip-pan-back"><!--change place name instead of saha-->
+        <a href="https://en.wikipedia.org/wiki/Panch_Prayag#:~:text=Panch%20Prayag%20(Pa%C3%B1cha,of%20their%20occurrence"><h2>Panch Prayag</h2></a><!--place wikipedia url-->
+      <p style="font-weight: bold; font-size: 20px;"> ✦Panch Prayag is an expression in Hindu <br>religious ethos, specifically used to<br> connote the five sacred rivers.
+      </p><!--place description-->
+    </div>
+  </div>
+</div>
+    <div class="flip-kot"><!--change place name instead of falls-->
+  <div class="flip-kot-inner"><!--change place name instead of falls-->
+    <div class="flip-kot-front"><!--change place name instead of falls-->
+        <img src="https://rishikeshdaytour.com/blog/wp-content/uploads/2019/09/Koteshwar-Mahadev-Temple-and-Cave-Rudraprayag.jpg" alt="Avatar" style="width:250px;height:150px;"><!--place img url-->
+        <h2 style="font-size: 30px ">Koteshwar Mahadev Temple</h2><!--place name-->
+
+    </div>
+    <div class="flip-kot-back"><!--change place name instead of falls-->
+        <a href="https://en.wikipedia.org/wiki/Koteshwar_Mahadev#:~:text=Koteshwar%20Mahadev%20Temple%20(Devanagari%3A%20%E0%A4%95%E0%A5%8B%E0%A4%9F%E0%A5%87%E0%A4%B6%E0%A5%8D%E0%A4%B5%E0%A4%B0%20%E0%A4%AE%E0%A4%B9%E0%A4%BE%E0%A4%A6%E0%A5%87
+        %E0%A4%B5)%20is%20a%20Hindu%20temple%20dedicated%20to%20Shiva%2C%20and%20is%20located%20approximately%203%20kilometres%20(3%2C000%C2%A0m)%20from%20the%20centre%20of%20the%20Rudraprayag%20district%20of%20Uttarakhand%2C%20a%20little%20above%20the%20Alaknanda%20River.%5B1%5D%5B2%5D"><h2>Koteshwar Mahadev Temple</h2></a><!--place wikipedia url-->
+      <p style="font-weight: bold; font-size: 20px;">✦Koteshwar Mahadev Temple is a Hindu temple<br> dedicated to Shiva, and is located<br> approximately 3 kilometres from the centre <br>of the Rudraprayag district.
+      </p><!--place description-->
+    </div>
+  </div>
+</div>
+    <div class="flip-dev"><!--change place name instead of tap-->
+  <div class="flip-dev-inner"><!--change place name instead of tap-->
+    <div class="flip-dev-front"><!--change place name instead of tap-->
+        <img src="https://www.euttaranchal.com/tourism/timthumb.php?src=https://www.euttaranchal.com/tourism/photos/dhari-devi-temple-5951440.jpg&w=620&h=440&q=50" alt="Avatar" style="width:250px;height:150px;"><!--place img url-->
+         <h2 style="font-size: 30px ">Dhari Devi Temple </h2><!--place name-->
+    </div>
+    <div class="flip-dev-back"><!--change place name instead of tap-->
+        <a href="https://en.wikipedia.org/wiki/Dhari_Devi"><h2>Dhari Devi Temple</h2></a><!--place wikipedia url-->
+      <p style="font-weight: bold; font-size: 20px;"> ✦Dhari Devi a Hindu temple located <br>on the banks of the Alaknanda River<br> between Srinagar and Rudraprayag.
+      </p><!--place description-->
+    </div>
+  </div>
+</div>
+</section>
+
+
+    <center style="padding: 270px 10px 40px; font-size:30px; letter-spacing:6px; text-decoration: none;"><h2 class="head1">Famous   Handicrafts</h2></center>
+
+
+<section>
+    <div class="flip-bea"><!--change craft name instead of aip-->
+  <div class="flip-bea-inner"><!--change craft name instead of aip-->
+    <div class="flip-bea-front"><!--change place name instead of aip-->
+        <img src="https://img.traveltriangle.com/blog/wp-content/uploads/2019/04/Shopping-In-Uttarakhand.jpg" alt="Avatar" style="width:250px;height:150px;"><!--craft img url-->
+        <h2 style="font-size: 30px ">Beadwork</h2><!--craft name-->
+
+    </div>
+    <div class="flip-bea-back"><!--change craft name instead of aip-->
+        <a href="https://en.wikipedia.org/wiki/Beadwork"><h2>Beadwork</h2></a><!--craft wikipedia url-->
+      <p style="font-weight: bold; font-size: 20px;">✦Beadwork is one of the traditional art of Rudraprayag.
+          <br>The art is done mainly during special occasions,<br> household ceremonies and rituals.
+      </p><!--craft description-->
+    </div>
+  </div>
+</div>
+        <div class="flip-bam"><!--change craft name instead of wool-->
+  <div class="flip-bam-inner"><!--change craft name instead of wool-->
+    <div class="flip-bam-front"><!--change craft name instead of wool-->
+        <img src="https://5.imimg.com/data5/IH/OU/MY-12266299/bamboo-work-handicraft-500x500.jpg" alt="Avatar" style="width:250px;height:150px;"><!--craft img url-->
+        <h2 style="font-size: 30px ">Bamboo Craft</h2><!--craft name-->
+    </div>
+    <div class="flip-bam-back"><!--change craft name instead of wool-->
+        <a href="https://en.wikipedia.org/wiki/Bambooworking#:~:text=Bambooworking%20is%20the%20activity%20or%20skill%20of%20making%20items%20from%20bamboo%2C%20and%20includes%20architecture%2C%20carpentry%2C%20furniture%20and%20cabinetry%2C%20carving%2C%20joinery%2C%20and%20weaving.%20Its%20historical%20roots%20in%20Asia%20span%20c
+        ultures%2C%20civilizations%2C%20and%20millennia%2C%20and%20is%20found%20across%20East%2C%20South%2C%20and%20Southeast%20Asia"><h2>Bamboo Craft</h2></a><!--craft wikipedia url-->
+      <p style="font-weight: bold; font-size: 20px;">✦Bamboo Craft Traditional crafts using<br> bamboo as raw material. Rural people in general are both producers<br> and consumers of this product.
+      </p><!--craft description-->
+    </div>
+  </div>
+</div>
+     <div class="flip-wood"><!--change craft name instead of wood-->
+  <div class="flip-wood-inner"><!--change craft name instead of wood-->
+    <div class="flip-wood-front"><!--change craft name instead of wood-->
+        <img src="http://hikerwolf.com/wp-content/uploads/2020/04/WhatsApp-Image-2020-04-13-at-5.48.53-PM-600x400.jpeg" alt="Avatar" style="width:250px;height:150px;"><!--craft img url-->
+        <h2 style="font-size: 30px ">Wooden Carvings</h2><!--craft name-->
+    </div>
+    <div class="flip-wood-back"><!--change craft name instead of wood-->
+        <a href="https://en.wikipedia.org/wiki/Wood_carving"><h2>Wooden Carvings</h2></a><!--craft wikipedia url-->
+      <p style="font-weight: bold; font-size: 20px;">✦In Rudraprayag, people have been making mandir,
+          <br> facades, front decors, doors and many more beautiful
+          <br> wooden things using their 3d engraving technique.
+      </p><!--craft description-->
+    </div>
+  </div>
+</div>
+    </section>
+
+
+<footer>
+  <button onclick="topFunction()" id="scrollToTopBtn" title="Go to top">Top☝</button>
+</footer>
+    </div>
+
+
+</head>
+<body>
+</body>
+</html>
+
+{%endblock%}
