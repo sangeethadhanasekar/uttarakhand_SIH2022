@@ -27,12 +27,18 @@ Framework: flask(python module)
 Api used: weatherapi.com
 
 
-##Team members:
+## Team members:
 1.[Nitisri T S]()
+
 2.[Sangeetha D](https://github.com/sangeethadhanasekar)
+
 3.[Shyamily R]()
+
 4.[Samuel Abisheik A]()
+
 5.[Mohammed Aashiq Z]()
+
 6.[Mohamed Khadeer R]()
+
 
 
