@@ -22,8 +22,11 @@ Uttarakhand is a state with 13 districts, and this portal depicts famous local t
 
 ## Requirements:
 Frontend: html,css,javascript
+
 Backend: python
+
 Framework: flask(python module)
+
 Api used: weatherapi.com
 
 
