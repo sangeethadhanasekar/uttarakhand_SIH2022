@@ -13,3 +13,4 @@ To help boost tourism in our country and help people with self-employment the Ut
  requires an application through which we can search each and every famous thing
 (i.e. famous place, food, fruit, handicraft, etc.) at each village/city.
  By having this information the tourists can easily visit the places."
+[Stalwarts (1).pdf](https://github.com/sangeethadhanasekar/uttarakhand_SIH2022/files/8245733/Stalwarts.1.pdf)
