@@ -35,7 +35,7 @@ Api used: weatherapi.com
 
 2.[Sangeetha D](https://github.com/sangeethadhanasekar)
 
-3.[Shyamily R]()
+3.[Shyamily R](https://github.com/Shyamily240702)
 
 4.[Samuel Abisheik A]()
 
