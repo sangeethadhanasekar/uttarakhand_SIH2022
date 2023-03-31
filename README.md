@@ -39,7 +39,7 @@ Api used: weatherapi.com
 
 4.[Samuel Abisheik A]()
 
-5.[Mohammed Aashiq Z]()
+5.[Mohammed Aashiq Z](https://github.com/MohammedAashiq-Z)
 
 6.[Mohamed Khadeer R]()
 
